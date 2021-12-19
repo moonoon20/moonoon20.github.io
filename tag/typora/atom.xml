@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://moonoon20.github.io</id>
+    <title>月のブログ</title>
+    <subtitle>时光如白驹过隙</subtitle>
+    <icon>https://moonoon20.github.io/images/favicon.ico</icon>
+    <link href="https://moonoon20.github.io" />
+    <author>
+      <name>Moon</name>
+    </author>
+    <updated>2021-12-19T14:49:37.000Z</updated>
+    <entry>
+        <id>https://moonoon20.github.io/2021/12/19/Typora%E8%AF%AD%E6%B3%95/</id>
+        <title>Typora语法</title>
+        <link rel="alternate" href="https://moonoon20.github.io/2021/12/19/Typora%E8%AF%AD%E6%B3%95/"/>
+        <content type="html">&lt;p&gt;&lt;a href=&#34;https://typora.io&#34;&gt;&lt;strong&gt;Typora&lt;/strong&gt;&lt;/a&gt; 是一款由 Abner Lee 开发的轻量级&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvTWFya2Rvd24=&#34;&gt; Markdown&lt;/span&gt; 编辑器，适用于 OS X、Windows 和 Linux 三种操作系统。与其他 Markdown 编辑器不同的是，Typora 没有采用源代码和预览双栏显示的方式，而是采用所见即所得的编辑方式，实现了即时预览的功能，但也可切换至源代码编辑模式。&lt;/p&gt;
+&lt;h1 id=&#34;标题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#标题&#34;&gt;#&lt;/a&gt; 标题&lt;/h1&gt;
+&lt;p&gt;一级标题： &lt;code&gt;#+space+text&lt;/code&gt;  快捷键 Commend+number&lt;/p&gt;
+&lt;p&gt;二级标题： &lt;code&gt;##+space+text&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;三级标题： &lt;code&gt;###+space+text&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;p&gt;最多六级&lt;/p&gt;
+&lt;h1 id=&#34;文本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文本&#34;&gt;#&lt;/a&gt; 文本&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;倾斜&lt;/em&gt;： &lt;code&gt;*倾斜*&lt;/code&gt;  快捷键 Commend+L&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;加粗&lt;/strong&gt;： &lt;code&gt;**加粗**&lt;/code&gt;  快捷键 Commend+B&lt;/p&gt;
+&lt;p&gt;&lt;s&gt;删除&lt;/s&gt;： &lt;code&gt;~~删除~~&lt;/code&gt;  快捷键 Commend+shift+`&lt;/p&gt;
+&lt;p&gt;&amp;lt;u&amp;gt; 下划线 &amp;lt;/u&amp;gt;： &lt;code&gt;&amp;lt;u&amp;gt;下划线&amp;lt;/u&amp;gt;&lt;/code&gt;  快捷键 Commend+U&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;高亮&lt;/mark&gt;： &lt;code&gt;==高亮==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;图像： &lt;code&gt;![text](image url)&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;引用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引用&#34;&gt;#&lt;/a&gt; 引用&lt;/h1&gt;
+&lt;p&gt;引用： &lt;code&gt;&amp;gt;+space&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;JOJO，我不做人啦！&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列表&#34;&gt;#&lt;/a&gt; 列表&lt;/h1&gt;
+&lt;p&gt;4.1 无序列表： &lt;code&gt;+/-/*&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无&lt;/li&gt;
+&lt;li&gt;序&lt;/li&gt;
+&lt;li&gt;列&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;4.2 有序列表： &lt;code&gt;number+.+space+text&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有&lt;/li&gt;
+&lt;li&gt;序&lt;/li&gt;
+&lt;li&gt;列&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4.3 任务列表： &lt;code&gt;-+space+[space]+text&lt;/code&gt;&lt;/p&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 任&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 务&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_2&#34;&gt; 列&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_3&#34;&gt; 表&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码&#34;&gt;#&lt;/a&gt; 代码&lt;/h1&gt;
+&lt;p&gt;单行：`` 中间写 code&lt;/p&gt;
+&lt;p&gt;单行 &lt;code&gt;code&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;多行：```+python+Enter&lt;/p&gt;
+&lt;figure class=&#34;highlight php&#34;&gt;&lt;figcaption data-lang=&#34;PHP&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;多行&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token string backtick-quoted-string&#34;&gt;``&lt;/span&gt;`&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;Enter&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;var&lt;/span&gt; a &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;超链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#超链接&#34;&gt;#&lt;/a&gt; 超链接&lt;/h1&gt;
+&lt;p&gt;6.1 网址： &lt;code&gt;[文本]+(url)&lt;/code&gt;  快捷键 Commend+K&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ29nbGUuY29t&#34;&gt;Google&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;6.2 本地： &lt;code&gt;[文本]+(url)&lt;/code&gt;  快捷键 Commend+K&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/Users/Documents/image/1.jpeg&#34;&gt;本地&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;注释&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注释&#34;&gt;#&lt;/a&gt; 注释&lt;/h1&gt;
+&lt;p&gt;注释&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;： &lt;code&gt;text[^number]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;注解： &lt;code&gt;[^number]:&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;分割线&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分割线&#34;&gt;#&lt;/a&gt; 分割线&lt;/h1&gt;
+&lt;p&gt;分割线： &lt;code&gt;---+Enter&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;语法：&amp;lt;hr&amp;gt; 文本 &amp;lt;/hr&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;hr&amp;gt; 分割线 &amp;lt;/hr&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;hr&amp;gt;&amp;lt;/hr&amp;gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1 id=&#34;上下标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#上下标&#34;&gt;#&lt;/a&gt; 上下标&lt;/h1&gt;
+&lt;p&gt;上&lt;sup&gt;标&lt;/sup&gt;： &lt;code&gt;上^标^&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;下&lt;sub&gt;标&lt;/sub&gt;： &lt;code&gt;下~标~&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;表格&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#表格&#34;&gt;#&lt;/a&gt; 表格&lt;/h1&gt;
+&lt;p&gt;快捷键 Commend+Alt+T&lt;/p&gt;
+&lt;h1 id=&#34;公式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#公式&#34;&gt;#&lt;/a&gt; 公式&lt;/h1&gt;
+&lt;p&gt;公式： &lt;code&gt;$公式$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;f(x)=e^2+1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.897438em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8141079999999999em;&#34;&gt;&lt;span style=&#34;top:-3.063em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h1&gt;
+&lt;p&gt;&amp;lt;button&amp;gt; 按钮 &amp;lt;/button&amp;gt;： &lt;code&gt;&amp;lt;button&amp;gt;按钮&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;emoji： &lt;code&gt;:emoji:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;太🐶了&lt;/p&gt;
+&lt;p&gt;你懂个🔨&lt;/p&gt;
+&lt;p&gt;生成目录： &lt;code&gt;[toc]&lt;/code&gt;&lt;/p&gt;
+&lt;hr class=&#34;footnotes-sep&#34; /&gt;
+&lt;section class=&#34;footnotes&#34;&gt;
+&lt;ol class=&#34;footnotes-list&#34;&gt;
+&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;em&gt;注释：注释与注解&lt;/em&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+        <category term="typora" scheme="https://moonoon20.github.io/tags/typora/" />
+        <updated>2021-12-19T14:49:37.000Z</updated>
+    </entry>
+</feed>

