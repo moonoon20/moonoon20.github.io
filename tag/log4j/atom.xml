@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://moonoon20.github.io</id>
+    <id>https://mo-onstudy.com</id>
     <title>月のブログ</title>
     <subtitle>时光如白驹过隙</subtitle>
-    <icon>https://moonoon20.github.io/images/favicon.ico</icon>
-    <link href="https://moonoon20.github.io" />
+    <icon>https://mo-onstudy.com/images/favicon.ico</icon>
+    <link href="https://mo-onstudy.com" />
     <author>
       <name>Moon</name>
     </author>
     <updated>2021-12-19T14:36:41.000Z</updated>
     <entry>
-        <id>https://moonoon20.github.io/2021/12/19/Log4j%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</id>
+        <id>https://mo-onstudy.com/2021/12/19/Log4j%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</id>
         <title>Log4j漏洞复现</title>
-        <link rel="alternate" href="https://moonoon20.github.io/2021/12/19/Log4j%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+        <link rel="alternate" href="https://mo-onstudy.com/2021/12/19/Log4j%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
         <content type="html">&lt;h1 id=&#34;log4j漏洞复现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#log4j漏洞复现&#34;&gt;#&lt;/a&gt; Log4j 漏洞复现&lt;/h1&gt;
 &lt;h2 id=&#34;漏洞复现环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#漏洞复现环境介绍&#34;&gt;#&lt;/a&gt; 漏洞复现环境介绍&lt;/h2&gt;
 &lt;p&gt;局域网&lt;/p&gt;
@@ -45,7 +45,7 @@
 &lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/2021-12-17_17-32-03%20(4).jpg&#34; alt=&#34;2021-12-17_17-32-03 (4)&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;希望大家复现成功！&lt;/p&gt;
 </content>
-        <category term="Log4j" scheme="https://moonoon20.github.io/tags/Log4j/" />
+        <category term="Log4j" scheme="https://mo-onstudy.com/tags/Log4j/" />
         <updated>2021-12-19T14:36:41.000Z</updated>
     </entry>
 </feed>
