@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>月のブログ</title>
+        <subtitle>时光如白驹过隙</subtitle>
+        <icon>https://mo-onstudy.com/images/favicon.ico</icon>
+        <link>https://mo-onstudy.com</link>
+        <author>
+          <name>Moon</name>
+        </author>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Tue, 21 Dec 2021 02:26:42 +0800</pubDate>
+        <lastBuildDate>Tue, 21 Dec 2021 02:26:42 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://mo-onstudy.com/2021/12/21/Hexo%E4%B9%8BShoka%E4%B8%BB%E9%A2%98/</guid>
+            <title>Hexo之Shoka主题</title>
+            <link>https://mo-onstudy.com/2021/12/21/Hexo%E4%B9%8BShoka%E4%B8%BB%E9%A2%98/</link>
+            <category term="Hexo,Shoka" scheme="https://mo-onstudy.com/tags/Hexo-Shoka/" />
+            <pubDate>Tue, 21 Dec 2021 02:26:42 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;links链接块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#links链接块&#34;&gt;#&lt;/a&gt; links 链接块&lt;/h1&gt;
+&lt;p&gt;本功能参考 NexT，基于 Hexo Tag 功能，用来建立友链或其他网址链接功能。 文章中的使用格式：&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
