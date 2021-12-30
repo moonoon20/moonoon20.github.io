@@ -11,7 +11,7 @@
             "url": "https://mo-onstudy.com/2021/12/21/Hexo%E4%B9%8BShoka%E4%B8%BB%E9%A2%98/",
             "title": "Hexo之Shoka主题",
             "date_published": "2021-12-20T18:26:42.000Z",
-            "content_html": "<h1 id=\"links链接块\"><a class=\"anchor\" href=\"#links链接块\">#</a> links 链接块</h1>\n<p>本功能参考 NexT，基于 Hexo Tag 功能，用来建立友链或其他网址链接功能。 文章中的使用格式：</p>\n",
+            "content_html": "<h1 id=\"\"><a class=\"anchor\" href=\"#\">#</a> </h1>\n<p>links 链接块</p>\n<p>本功能参考 NexT，基于 Hexo Tag 功能，用来建立友链或其他网址链接功能。 文章中的使用格式：</p>\n",
             "tags": [
                 "Hexo,Shoka"
             ]

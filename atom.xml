@@ -8,12 +8,270 @@
     <author>
       <name>Moon</name>
     </author>
-    <updated>2021-12-20T18:26:42.000Z</updated>
+    <updated>2021-12-27T02:58:59.000Z</updated>
+    <entry>
+        <id>https://mo-onstudy.com/2021/12/27/Python%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0(proxy_pool)%E6%90%AD%E5%BB%BA/</id>
+        <title>Python爬虫代理IP池(proxy_pool)搭建</title>
+        <link rel="alternate" href="https://mo-onstudy.com/2021/12/27/Python%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0(proxy_pool)%E6%90%AD%E5%BB%BA/"/>
+        <content type="html">&lt;p&gt;ProxyPool 爬虫代理 IP 池项目，主要功能为定时采集网上发布的免费代理验证入库，定时验证入库的代理保证代理的可用性，提供 API 和 CLI 两种使用方式。同时你也可以扩展代理源以增加代理池 IP 的质量和数量。&lt;/p&gt;
+&lt;h2 id=&#34;环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境介绍&#34;&gt;#&lt;/a&gt; 环境介绍&lt;/h2&gt;
+&lt;p&gt;Redis 数据库搭建系统：centos7&lt;/p&gt;
+&lt;p&gt;centos7 IP：192.168.50.199&lt;/p&gt;
+&lt;p&gt;proxypool 项目运行系统：macOS&lt;/p&gt;
+&lt;p&gt;macOS IP：192.168.1.166&lt;/p&gt;
+&lt;h2 id=&#34;proxypool项目详情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#proxypool项目详情&#34;&gt;#&lt;/a&gt; ProxyPool 项目详情&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQ=&#34;&gt;jhao104&lt;/span&gt;/&lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbA==&#34;&gt;proxy_pool&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbCNyZWFkbWU=&#34;&gt;README.md&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;proxypool-爬虫代理ip池&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#proxypool-爬虫代理ip池&#34;&gt;#&lt;/a&gt; ProxyPool 爬虫代理 IP 池&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://travis-ci.org/jhao104/proxy_pool&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/e1fdabc3e03268cce5b9d242862c30d969135984f9c81627b2ac8e83b52f0ea8/68747470733a2f2f7472617669732d63692e6f72672f6a68616f3130342f70726f78795f706f6f6c2e7376673f6272616e63683d6d6173746572&#34; alt=&#34;Build Status&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.spiderpy.cn/blog/&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/ac93fba4c3b45aeca54b37b19331829460819d9b368c27d0c21518d01f182e8e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f776572656425323062792d406a5f68616f3130342d677265656e2e737667&#34; alt=&#34;img&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://requires.io/github/jhao104/proxy_pool/requirements/?branch=master&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/dd8752930177bb658386c6a2a541c22dc82930177d599ddd584ca0656b938e78/68747470733a2f2f72657175697265732e696f2f6769746875622f6a68616f3130342f70726f78795f706f6f6c2f726571756972656d656e74732e7376673f6272616e63683d6d6173746572&#34; alt=&#34;Requirements Status&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/LICENSE&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/7ff41b59b239eb614cf0d3b323cb2ac83aa69dfad7fce02a998947648eb32d93/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f6c2f646f637472696e652f6f726d2e737667&#34; alt=&#34;Packagist&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/graphs/contributors&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/a07f4e7354dd8a5858ef8f109e41f0c88f26fe14978d17f67804fa009d73458c/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6e7472696275746f72732f6a68616f3130342f70726f78795f706f6f6c2e737667&#34; alt=&#34;GitHub contributors&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/c293033ccfe6212b2a2ca4bab6003840bf647717f2d83f3ef08322630689da62/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d507974686f6e2d677265656e2e737667&#34; alt=&#34;img&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&#34;gallery&#34; data-height=&#34;120&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;______                        ______             _
+| ___ \_                      | ___ \           | |
+| |_/ / \__ __   __  _ __   _ | |_/ /___   ___  | |
+|  __/|  _// _ \ \ \/ /| | | ||  __// _ \ / _ \ | |
+| |   | | | (_) | &amp;gt;  &amp;lt; \ |_| || |  | (_) | (_) || |___
+\_|   |_|  \___/ /_/\_\ \__  |\_|   \___/ \___/ \_____\
+                       __ / /
+                      /___ /
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;proxypool&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#proxypool&#34;&gt;#&lt;/a&gt; ProxyPool&lt;/h3&gt;
+&lt;p&gt;爬虫代理 IP 池项目，主要功能为定时采集网上发布的免费代理验证入库，定时验证入库的代理保证代理的可用性，提供 API 和 CLI 两种使用方式。同时你也可以扩展代理源以增加代理池 IP 的质量和数量。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文档: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wcm94eS1wb29sLnJlYWR0aGVkb2NzLmlvL3poL2xhdGVzdC8=&#34;&gt;document&lt;/span&gt; &lt;a href=&#34;https://proxy-pool.readthedocs.io/zh/latest/?badge=latest&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/3e0c23afa7a55a5caea9af8840a8e0c5fa921549a67b6debd8c461f3bf4ab246/68747470733a2f2f72656164746865646f63732e6f72672f70726f6a656374732f70726f78792d706f6f6c2f62616467652f3f76657273696f6e3d6c6174657374&#34; alt=&#34;Documentation Status&#34; /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;支持版本: &lt;a href=&#34;https://camo.githubusercontent.com/90d8f7c32cdcf8fa7416df8e80758d3a767608815e127c287830c3008b168a79/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f507974686f6e2d322e782d677265656e2e737667&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/90d8f7c32cdcf8fa7416df8e80758d3a767608815e127c287830c3008b168a79/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f507974686f6e2d322e782d677265656e2e737667&#34; alt=&#34;img&#34; /&gt;&lt;/a&gt; &lt;a href=&#34;https://camo.githubusercontent.com/c6c0bbb17cec16cec2d7da6553f8c9a1a99604f27f7c0b8e3faa957dca35bbab/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f507974686f6e2d332e782d626c75652e737667&#34;&gt;&lt;img data-src=&#34;https://camo.githubusercontent.com/c6c0bbb17cec16cec2d7da6553f8c9a1a99604f27f7c0b8e3faa957dca35bbab/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f507974686f6e2d332e782d626c75652e737667&#34; alt=&#34;img&#34; /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;测试地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2RlbW8uc3BpZGVycHkuY24v&#34;&gt;http://demo.spiderpy.cn&lt;/span&gt; (勿压谢谢)&lt;/li&gt;
+&lt;li&gt;付费代理推荐: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9icmlnaHRkYXRhLmdyc20uaW8vcHJveHlQb29s&#34;&gt;luminati-china&lt;/span&gt;. 国外的亮数据 BrightData（以前叫 luminati）被认为是代理市场领导者，覆盖全球的 7200 万 IP，大部分是真人住宅 IP，成功率扛扛的。付费套餐多种，需要高质量代理 IP 的可以注册后联系中文客服，开通后有 5 美金赠送和教程指引 (PS: 用不明白的同学可以参考这个&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vamhhby9wLzE1NjExNzg1Lmh0bWw=&#34;&gt;使用教程&lt;/span&gt;)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;运行项目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#运行项目&#34;&gt;#&lt;/a&gt; 运行项目&lt;/h3&gt;
+&lt;h4 id=&#34;下载代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#下载代码&#34;&gt;#&lt;/a&gt; 下载代码:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;git clone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone git@github.com:jhao104/proxy_pool.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;releases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;https://github.com/jhao104/proxy_pool/releases 下载对应zip文件&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;安装依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装依赖&#34;&gt;#&lt;/a&gt; 安装依赖:&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pip &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; -r requirements.txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;更新配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新配置&#34;&gt;#&lt;/a&gt; 更新配置:&lt;/h4&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# setting.py 为项目配置文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 配置 API 服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;HOST &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;0.0.0.0&#34;&lt;/span&gt;               &lt;span class=&#34;token comment&#34;&gt;# IP&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;PORT &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;5000&lt;/span&gt;                    &lt;span class=&#34;token comment&#34;&gt;# 监听端口&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 配置数据库&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;DB_CONN &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;redis://:pwd@127.0.0.1:8888/0&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 配置 ProxyFetcher&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;PROXY_FETCHER &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;freeProxy01&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;      &lt;span class=&#34;token comment&#34;&gt;# 这里是启用的代理抓取方法名，所有 fetch 方法位于 fetcher/proxyFetcher.py&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;freeProxy02&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# ....&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;启动项目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动项目&#34;&gt;#&lt;/a&gt; 启动项目:&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 如果已经具备运行条件，可用通过 proxyPool.py 启动。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 程序分为: schedule 调度程序 和 server Api 服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 启动调度程序&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python proxyPool.py schedule&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 启动 webApi 服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python proxyPool.py server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;docker运行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#docker运行&#34;&gt;#&lt;/a&gt; Docker 运行&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker pull jhao104/proxy_pool&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker run --env &lt;span class=&#34;token assign-left variable&#34;&gt;DB_CONN&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;redis://:password@ip:port/0 -p &lt;span class=&#34;token number&#34;&gt;5010&lt;/span&gt;:5010 jhao104/proxy_pool:2.4.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用&#34;&gt;#&lt;/a&gt; 使用&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Api&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;启动 web 服务后，默认配置下会开启 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzEyNy4wLjAuMTo1MDEwLw==&#34;&gt;http://127.0.0.1:5010&lt;/span&gt; 的 api 接口服务:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;api&lt;/th&gt;
+&lt;th&gt;method&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;params&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;td&gt;GET&lt;/td&gt;
+&lt;td&gt;api 介绍&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/get&lt;/td&gt;
+&lt;td&gt;GET&lt;/td&gt;
+&lt;td&gt;随机获取一个代理&lt;/td&gt;
+&lt;td&gt;可选参数:  &lt;code&gt;?type=https&lt;/code&gt;  过滤支持 https 的代理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/pop&lt;/td&gt;
+&lt;td&gt;GET&lt;/td&gt;
+&lt;td&gt;获取并删除一个代理&lt;/td&gt;
+&lt;td&gt;可选参数:  &lt;code&gt;?type=https&lt;/code&gt;  过滤支持 https 的代理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/all&lt;/td&gt;
+&lt;td&gt;GET&lt;/td&gt;
+&lt;td&gt;获取所有代理&lt;/td&gt;
+&lt;td&gt;可选参数:  &lt;code&gt;?type=https&lt;/code&gt;  过滤支持 https 的代理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/count&lt;/td&gt;
+&lt;td&gt;GET&lt;/td&gt;
+&lt;td&gt;查看代理数量&lt;/td&gt;
+&lt;td&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/delete&lt;/td&gt;
+&lt;td&gt;GET&lt;/td&gt;
+&lt;td&gt;删除代理&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;?proxy=host:ip&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;爬虫使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果要在爬虫代码中使用的话， 可以将此 api 封装成函数直接使用，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; requests&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_proxy&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; requests&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;get&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;http://127.0.0.1:5010/get/&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;json&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;delete_proxy&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;proxy&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    requests&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;get&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;http://127.0.0.1:5010/delete/?proxy=&amp;#123;&amp;#125;&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;proxy&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# your spider code&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;getHtml&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# ....&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    retry_count &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    proxy &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; get_proxy&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;get&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;proxy&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; retry_count &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            html &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; requests&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;get&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;http://www.example.com&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; proxies&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;http&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;http://&amp;#123;&amp;#125;&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;proxy&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token comment&#34;&gt;# 使用代理访问&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; html&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; Exception&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            retry_count &lt;span class=&#34;token operator&#34;&gt;-=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# 删除代理池中代理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    delete_proxy&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;proxy&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;None&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;扩展代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#扩展代理&#34;&gt;#&lt;/a&gt; 扩展代理&lt;/h3&gt;
+&lt;p&gt;项目默认包含几个免费的代理获取源，但是免费的毕竟质量有限，所以如果直接运行可能拿到的代理质量不理想。所以，提供了代理获取的扩展方法。&lt;/p&gt;
+&lt;p&gt;添加一个新的代理源方法如下:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1、首先在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbC9ibG9iLzFhMzY2NjI4MzgwNmEyMmVmMjg3ZmJhMWE4ZWZhYjdiOTRlOTRiYWMvZmV0Y2hlci9wcm94eUZldGNoZXIucHkjTDIx&#34;&gt; ProxyFetcher&lt;/span&gt; 类中添加自定义的获取代理的静态方法， 该方法需要以生成器 (yield) 形式返回 &lt;code&gt;host:ip&lt;/code&gt;  格式的代理，例如:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;ProxyFetcher&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;object&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# ....&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# 自定义代理源获取方法&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token decorator annotation punctuation&#34;&gt;@staticmethod&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;freeProxyCustom1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 命名不和已有重复即可&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;# 通过某网站或者某接口或某数据库获取代理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;# 假设你已经拿到了一个代理列表&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        proxies &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;x.x.x.x:3128&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;x.x.x.x:80&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; proxy &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; proxies&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;yield&lt;/span&gt; proxy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token comment&#34;&gt;# 确保每个 proxy 都是 host:ip 正确的格式返回&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;2、添加好方法后，修改&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbC9ibG9iLzFhMzY2NjI4MzgwNmEyMmVmMjg3ZmJhMWE4ZWZhYjdiOTRlOTRiYWMvc2V0dGluZy5weSNMNDc=&#34;&gt; setting.py&lt;/span&gt; 文件中的 &lt;code&gt;PROXY_FETCHER&lt;/code&gt;  项：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 &lt;code&gt;PROXY_FETCHER&lt;/code&gt;  下添加自定义方法的名字:&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;PROXY_FETCHER &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;freeProxy01&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;freeProxy02&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# ....&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;freeProxyCustom1&#34;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;#  # 确保名字和你添加方法名字一致&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;schedule&lt;/code&gt;  进程会每隔一段时间抓取一次代理，下次抓取时会自动识别调用你定义的方法。&lt;/p&gt;
+&lt;h3 id=&#34;免费代理源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#免费代理源&#34;&gt;#&lt;/a&gt; 免费代理源&lt;/h3&gt;
+&lt;p&gt;目前实现的采集免费代理网站有 (排名不分先后，下面仅是对其发布的免费代理情况，付费代理测评可以参考&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zMzU3NjY0MQ==&#34;&gt;这里&lt;/span&gt;):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;代理名称&lt;/th&gt;
+&lt;th&gt;状态&lt;/th&gt;
+&lt;th&gt;更新速度&lt;/th&gt;
+&lt;th&gt;可用率&lt;/th&gt;
+&lt;th&gt;地址&lt;/th&gt;
+&lt;th&gt;代码&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;米扑代理&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;★&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wcm94eS5taW12cC5jb20v&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L27&#34;&gt; &lt;code&gt;freeProxy01&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;66 代理&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;★★&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy42NmlwLmNuLw==&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L52&#34;&gt; &lt;code&gt;freeProxy02&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;开心代理&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;★&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5reGRhaWxpLmNvbS8=&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L65&#34;&gt; &lt;code&gt;freeProxy03&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;蝶鸟 IP&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;★&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZGllbmlhby5jb20v&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L76&#34;&gt; &lt;code&gt;freeProxy04&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;快代理&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;☆&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cua3VhaWRhaWxpLmNvbS8=&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L86&#34;&gt; &lt;code&gt;freeProxy05&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PROXY11&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;★&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wcm94eTExLmNvbS8=&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L105&#34;&gt; &lt;code&gt;freeProxy06&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;云代理&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;★&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5pcDMzNjYubmV0Lw==&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L116&#34;&gt; &lt;code&gt;freeProxy07&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;小幻代理&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;★★&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pcC5paHVhbi5tZS8=&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L126&#34;&gt; &lt;code&gt;freeProxy08&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;免费代理库&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;☆&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2lwLmppYW5neGlhbmxpLmNvbS8=&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L136&#34;&gt; &lt;code&gt;freeProxy09&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;89 代理&lt;/td&gt;
+&lt;td&gt;✔&lt;/td&gt;
+&lt;td&gt;☆&lt;/td&gt;
+&lt;td&gt;*&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuODlpcC5jbi8=&#34;&gt;地址&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jhao104/proxy_pool/blob/master/fetcher/proxyFetcher.py#L147&#34;&gt; &lt;code&gt;freeProxy10&lt;/code&gt; &lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;如果还有其他好的免费代理网站，可以在提交在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbC9pc3N1ZXMvNzE=&#34;&gt; issues&lt;/span&gt;, 下次更新时会考虑在项目中支持。&lt;/p&gt;
+&lt;h3 id=&#34;问题反馈&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题反馈&#34;&gt;#&lt;/a&gt; 问题反馈&lt;/h3&gt;
+&lt;p&gt;任何问题欢迎在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbC9pc3N1ZXM=&#34;&gt; Issues&lt;/span&gt; 中反馈，同时也可以到我的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5zcGlkZXJweS5jbi9ibG9nL21lc3NhZ2U=&#34;&gt;博客&lt;/span&gt;中留言。&lt;/p&gt;
+&lt;p&gt;你的反馈会让此项目变得更加完美。&lt;/p&gt;
+&lt;h3 id=&#34;贡献代码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#贡献代码&#34;&gt;#&lt;/a&gt; 贡献代码&lt;/h3&gt;
+&lt;p&gt;本项目仅作为基本的通用的代理池架构，不接收特有功能 (当然，不限于特别好的 idea)。&lt;/p&gt;
+&lt;p&gt;本项目依然不够完善，如果发现 bug 或有新的功能添加，请在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbC9pc3N1ZXM=&#34;&gt; Issues&lt;/span&gt; 中提交 bug (或新功能) 描述，我会尽力改进，使她更加完美。&lt;/p&gt;
+&lt;p&gt;这里感谢以下 contributor 的无私奉献：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2thbmdud2g=&#34;&gt;@kangnwh&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2JvYm9ibzgw&#34;&gt;@bobobo80&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hhbGxleXdq&#34;&gt;@halleywj&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25ld2x5ZWR3YXJk&#34;&gt;@newlyedward&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3dhbmcteWU=&#34;&gt;@wang-ye&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2dsYWRtbw==&#34;&gt;@gladmo&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2Jlcm5pZXlhbmdtaA==&#34;&gt;@bernieyangmh&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1B5dGhvbllYWQ==&#34;&gt;@PythonYXY&lt;/span&gt;| &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3p1aWppYXdvbml1&#34;&gt;@zuijiawoniu&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25ldEFpcg==&#34;&gt;@netAir&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NjaWw=&#34;&gt;@scil&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3RhbmdyZWxh&#34;&gt;@tangrela&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hpZ2hyb29t&#34;&gt;@highroom&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2x1b2Nhb2Rhbg==&#34;&gt;@luocaodan&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3ZjNQ==&#34;&gt;@vc5&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tLzFhZ2Fpbg==&#34;&gt;@1again&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL29iYWl5YW4=&#34;&gt;@obaiyan&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3pzYmg=&#34;&gt;@zsbh&lt;/span&gt; | &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2ppYW5uYW55YQ==&#34;&gt;@jiannanya&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;release-notes&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#release-notes&#34;&gt;#&lt;/a&gt; Release Notes&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbC9ibG9iL21hc3Rlci9kb2NzL2NoYW5nZWxvZy5yc3Q=&#34;&gt;changelog&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;具体搭建步骤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#具体搭建步骤&#34;&gt;#&lt;/a&gt; 具体搭建步骤&lt;/h2&gt;
+&lt;h3 id=&#34;centos7安装redis数据库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#centos7安装redis数据库&#34;&gt;#&lt;/a&gt; centos7 安装 redis 数据库&lt;/h3&gt;
+&lt;p&gt;参考链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vaHVuYW56cC9wLzEyMzA0NjIyLmh0bWw=&#34;&gt;Linux 安装部署 Redis (超级详细)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWRpcy5pby9kb3dubG9hZA==&#34;&gt;Redis 官网下载地址&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;安装redis精简命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装redis精简命令&#34;&gt;#&lt;/a&gt; 安装 redis 精简命令&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 下载 redis&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;wget&lt;/span&gt; http://download.redis.io/releases/redis-5.0.7.tar.gz&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 解压 redis&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;tar&lt;/span&gt; -zvxf redis-5.0.7.tar.gz&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 移动解压后的文件夹至 /usr/local 目录。并重命名文件夹为 redis&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mv&lt;/span&gt; /root/redis-5.0.7 /usr/local/redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 进入 /usr/local/redis 并进行编译&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 安装 redis 至当前目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;PREFIX&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;/usr/local/redis &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 运行 redis，进入 /usr/local/bin 目录后执行命令&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./redis-server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 停止 redis，进入 /usr/local/bin 目录后执行命令进入控制台&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./redis-cli&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token comment&#34;&gt;# 进入控制台后执行命令停止 redis&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token function&#34;&gt;shutdown&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;修改redis配置文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改redis配置文件&#34;&gt;#&lt;/a&gt; 修改 redis 配置文件&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; /usr/local/redis.conf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;&lt;strong&gt;修改 redis.conf 配置文件后需要重启 redis 服务&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 设置非密码访问，密码设置为空或注释字段所在行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;requirepass &lt;span class=&#34;token string&#34;&gt;&#34;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 设置允许远程访问：注释 bind 行，修改 protected-mode 为 no&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;bind&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;127.0&lt;/span&gt;.0.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;protected-mode no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# daemonize yes 表示启用守护进程，默认是 no 即不以守护进程方式运行。其中 Windows 系统下不支持启用守护进程方式运行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;daemonize no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;redis常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#redis常用命令&#34;&gt;#&lt;/a&gt; redis 常用命令&lt;/h4&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 通过进程查看 redis 是否运行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ps&lt;/span&gt; -aux &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 通过端口查看 redis 是否运行&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;netstat&lt;/span&gt; -lanp &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;6379&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 指定配置文件运行 redis&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /usr/local/redis/bin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./redis-server /usr/local/redis.conf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;redis 开启后可以使用数据库管理工具进行连接，查看数据&lt;/p&gt;
+&lt;div class=&#34;note warning&#34;&gt;
+&lt;p&gt;&lt;strong&gt;警告：破解版软件均为网络资源，请自行查杀！！！&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Mac 破解版下载&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wYW4uaWN1bHR1cmUuY2Mvcy9FRXd1WQ==&#34;&gt; Redis Desktop Manager&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Windows 破解版下载&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wYW4uaWN1bHR1cmUuY2Mvcy9samtoYQ==&#34;&gt; Redis Desktop Manager&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;填写数据库信息进行连接，&lt;ins class=&#34;dot&#34;&gt;云服务注意开放端口&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/2021-12-28_22-19-48.jpg&#34; alt=&#34;2021-12-28_22-19-48&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/2021-12-28_22-23-10.jpg&#34; alt=&#34;2021-12-28_22-23-10&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;mac运行代理池脚本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#mac运行代理池脚本&#34;&gt;#&lt;/a&gt; Mac 运行代理池脚本&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 下载项目&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/jhao104/proxy_pool.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 安装依赖&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; proxy_pool&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pip3 &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; -r requirements.txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 修改配置文件 setting.py&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; setting.py&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token comment&#34;&gt;# 配置数据库&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	DB_CONN &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;redis://:@192.168.50.199:6379/0&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 启动程序，分为: schedule 调度程序 和 server Api 服务，需两个终端&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token comment&#34;&gt;# 终端 1，启动调度程序&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	python3 proxyPool.py schedule&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token comment&#34;&gt;# 终端 2，启动 webApi 服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	python3 proxyPool.py server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;schedule 调度程序从免费代理源获取 IP，此时查看 redis 数据库会看到获取的 IP 数据，server API 服务开启 api 接口，macOS 访问 http://127.0.0.1:5010/get 会随机从数据库中获取一条 IP 数据&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/2021-12-28_22-38-57.jpg&#34; alt=&#34;2021-12-28_22-38-57&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/2021-12-28_23-10-18.jpg&#34; alt=&#34;2021-12-28_23-10-18&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/2021-12-28_22-38-58.jpg&#34; alt=&#34;2021-12-28_22-38-58&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/2021-12-28_23-10-17.jpg&#34; alt=&#34;2021-12-28_23-10-17&#34; /&gt;&lt;/p&gt;
+</content>
+        <category term="代理池" scheme="https://mo-onstudy.com/tags/%E4%BB%A3%E7%90%86%E6%B1%A0/" />
+        <category term="proxy_pool" scheme="https://mo-onstudy.com/tags/proxy-pool/" />
+        <updated>2021-12-27T02:58:59.000Z</updated>
+    </entry>
     <entry>
         <id>https://mo-onstudy.com/2021/12/21/Hexo%E4%B9%8BShoka%E4%B8%BB%E9%A2%98/</id>
         <title>Hexo之Shoka主题</title>
         <link rel="alternate" href="https://mo-onstudy.com/2021/12/21/Hexo%E4%B9%8BShoka%E4%B8%BB%E9%A2%98/"/>
-        <content type="html">&lt;h1 id=&#34;links链接块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#links链接块&#34;&gt;#&lt;/a&gt; links 链接块&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&#34;&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#&#34;&gt;#&lt;/a&gt; &lt;/h1&gt;
+&lt;p&gt;links 链接块&lt;/p&gt;
 &lt;p&gt;本功能参考 NexT，基于 Hexo Tag 功能，用来建立友链或其他网址链接功能。 文章中的使用格式：&lt;/p&gt;
 </content>
         <category term="Hexo,Shoka" scheme="https://mo-onstudy.com/tags/Hexo-Shoka/" />
@@ -163,6 +421,6 @@
 &lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
 </content>
-        <updated>2021-12-19T13:25:10.943Z</updated>
+        <updated>2021-12-19T13:25:10.000Z</updated>
     </entry>
 </feed>
