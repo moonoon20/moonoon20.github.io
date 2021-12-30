@@ -15,10 +15,10 @@
         <link rel="alternate" href="https://mo-onstudy.com/2021/12/27/Python%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
         <content type="html">&lt;p&gt;ProxyPool 爬虫代理 IP 池项目，主要功能为定时采集网上发布的免费代理验证入库，定时验证入库的代理保证代理的可用性，提供 API 和 CLI 两种使用方式。同时你也可以扩展代理源以增加代理池 IP 的质量和数量。&lt;/p&gt;
 &lt;h2 id=&#34;环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境介绍&#34;&gt;#&lt;/a&gt; 环境介绍&lt;/h2&gt;
-&lt;p&gt;Redis 数据库搭建系统：centos7&lt;/p&gt;
-&lt;p&gt;centos7 IP：192.168.50.199&lt;/p&gt;
-&lt;p&gt;proxypool 项目运行系统：macOS&lt;/p&gt;
-&lt;p&gt;macOS IP：192.168.1.166&lt;/p&gt;
+&lt;p&gt;Redis 数据库搭建系统：&lt;span class=&#34;kbd red&#34;&gt;centos7&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;centos7 IP：&lt;span class=&#34;kbd red&#34;&gt;192.168.50.199&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;proxypool 项目运行系统：&lt;span class=&#34;kbd red&#34;&gt;macOS&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;macOS IP：&lt;span class=&#34;kbd red&#34;&gt;192.168.1.166&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;proxypool项目详情&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#proxypool项目详情&#34;&gt;#&lt;/a&gt; ProxyPool 项目详情&lt;/h2&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQ=&#34;&gt;jhao104&lt;/span&gt;/&lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbA==&#34;&gt;proxy_pool&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2poYW8xMDQvcHJveHlfcG9vbCNyZWFkbWU=&#34;&gt;README.md&lt;/span&gt;&lt;/p&gt;
@@ -259,7 +259,7 @@
 &lt;p&gt;具体一个应用到代理池的项目可参考文章&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaWN1bHR1cmUuY2MvZm9ydW0tcG9zdC82MDUz&#34;&gt;如何快速白嫖获得 CNVD 证书&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;在代理池开启的情况下，Mac 新开终端运行项目&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1JhaWRlclpQ&#34;&gt; RaiderZP&lt;/span&gt;/&lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1JhaWRlclpQL2NudmRfZm9mYV9nYXRoZXI=&#34;&gt;cnvd_fofa_gather&lt;/span&gt;&lt;/strong&gt;，脚本运行结束会得到 company.txt 文档&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 下载项目&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/RaiderZP/cnvd_fofa_gather&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 运行脚本&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; cnvd_fofa_gather&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python3 cnvd_fofa_gather.py&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211230213214477.png&#34; alt=&#34;image-20211230213214477&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;![image-20211230213554294](../../../../Library/Application Support/typora-user-images/image-20211230213554294.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211230231735929.png&#34; alt=&#34;image-20211230231735929&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;祝大家搭建成功！&lt;/p&gt;
 </content>
         <category term="代理池" scheme="https://mo-onstudy.com/tags/%E4%BB%A3%E7%90%86%E6%B1%A0/" />
