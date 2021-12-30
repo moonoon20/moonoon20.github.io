@@ -11,7 +11,7 @@
     <updated>2021-12-27T02:58:59.000Z</updated>
     <entry>
         <id>https://mo-onstudy.com/2021/12/27/Python%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0(proxy_pool)%E6%90%AD%E5%BB%BA/</id>
-        <title>Python爬虫代理IP池(proxy_pool)的搭建与使用</title>
+        <title>Python爬虫代理IP池的搭建与使用</title>
         <link rel="alternate" href="https://mo-onstudy.com/2021/12/27/Python%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0(proxy_pool)%E6%90%AD%E5%BB%BA/"/>
         <content type="html">&lt;p&gt;ProxyPool 爬虫代理 IP 池项目，主要功能为定时采集网上发布的免费代理验证入库，定时验证入库的代理保证代理的可用性，提供 API 和 CLI 两种使用方式。同时你也可以扩展代理源以增加代理池 IP 的质量和数量。&lt;/p&gt;
 &lt;h2 id=&#34;环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境介绍&#34;&gt;#&lt;/a&gt; 环境介绍&lt;/h2&gt;
