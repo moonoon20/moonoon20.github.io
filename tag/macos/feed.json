@@ -1,0 +1,25 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "月のブログ",
+    "subtitle": "时光如白驹过隙",
+    "icon": "https://mo-onstudy.com/images/favicon.ico",
+    "description": "",
+    "home_page_url": "https://mo-onstudy.com",
+    "items": [
+        {
+            "id": "https://mo-onstudy.com/2022/01/09/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/",
+            "url": "https://mo-onstudy.com/2022/01/09/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/",
+            "title": "常用命令",
+            "date_published": "2022-01-09T04:23:39.000Z",
+            "content_html": "<h2 id=\"macos\"><a class=\"anchor\" href=\"#macos\">#</a> macOS</h2>\n<figure class=\"highlight bash\"><figcaption data-lang=\"bash\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token comment\"># 修改 hosts 文件</span></pre></td></tr><tr><td data-num=\"2\"></td><td><pre> <span class=\"token function\">sudo</span> <span class=\"token function\">vi</span> /etc/hosts</pre></td></tr></table></figure><figure class=\"highlight shell\"><figcaption data-lang=\"Bash\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token comment\"># dirmap 显示没有安装模块，尽管已经安装</span></pre></td></tr><tr><td data-num=\"2\"></td><td><pre>python3 -m pip <span class=\"token function\">install</span> <span class=\"token string\">'模块名字'</span></pre></td></tr></table></figure>",
+            "tags": [
+                "MacOS",
+                "centos",
+                "iterm",
+                "terminal",
+                "bash",
+                "shell"
+            ]
+        }
+    ]
+}

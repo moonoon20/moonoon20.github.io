@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>月のブログ</title>
+        <subtitle>时光如白驹过隙</subtitle>
+        <icon>https://mo-onstudy.com/images/favicon.ico</icon>
+        <link>https://mo-onstudy.com</link>
+        <author>
+          <name>Moon</name>
+        </author>
+        <description></description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 17 Jan 2022 16:17:41 +0800</pubDate>
+        <lastBuildDate>Mon, 17 Jan 2022 16:17:41 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://mo-onstudy.com/2022/01/17/Burpsuit%E7%A0%B4%E8%A7%A3/</guid>
+            <title>Burpsuit For Mac 破解流程</title>
+            <link>https://mo-onstudy.com/2022/01/17/Burpsuit%E7%A0%B4%E8%A7%A3/</link>
+            <category term="Burp" scheme="https://mo-onstudy.com/tags/Burp/" />
+            <category term="破解软件" scheme="https://mo-onstudy.com/tags/%E7%A0%B4%E8%A7%A3%E8%BD%AF%E4%BB%B6/" />
+            <pubDate>Mon, 17 Jan 2022 16:17:41 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;前期准备&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前期准备&#34;&gt;#&lt;/a&gt; 前期准备&lt;/h2&gt;
+&lt;h3 id=&#34;burpsuit下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#burpsuit下载&#34;&gt;#&lt;/a&gt; Burpsuit 下载&lt;/h3&gt;
+&lt;p&gt;访问&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvYnVycA==&#34;&gt; Burpsuit 官网&lt;/span&gt;进入&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvYnVycC9yZWxlYXNlcy9wcm9mZXNzaW9uYWwtY29tbXVuaXR5LTIwMjEtMTItMT9yZXF1ZXN0ZWRlZGl0aW9uPXByb2Zlc3Npb25hbA==&#34;&gt;下载页面&lt;/span&gt;选择适合版本进行下载并安装&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117163741945.png&#34; alt=&#34;image-20220117163741945&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;破解项目下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#破解项目下载&#34;&gt;#&lt;/a&gt; 破解项目下载&lt;/h3&gt;
+&lt;p&gt;访问&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1Ryb2phbkFaaGVu&#34;&gt; TrojanAZhen&lt;/span&gt;/&lt;a href=&#34;https://github.com/TrojanAZhen/BurpSuitePro-2.1&#34;&gt;&lt;strong&gt;BurpSuitePro-2.1&lt;/strong&gt;&lt;/a&gt; 下载项目文档&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117163817508.png&#34; alt=&#34;image-20220117163817508&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;jdk下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jdk下载&#34;&gt;#&lt;/a&gt; jdk 下载&lt;/h3&gt;
+&lt;p&gt;从 &lt;span class=&#34;kbd red&#34;&gt;Zulu JDK&lt;/span&gt; 官方网站下载 &lt;span class=&#34;kbd red&#34;&gt;JDK&lt;/span&gt; 安装包并安装 —&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYXp1bC5jb20vZG93bmxvYWRzLz9wYWNrYWdlPWpkaw==&#34;&gt; 下载页面&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117224646677.png&#34; alt=&#34;image-20220117224646677&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;破解步骤&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#破解步骤&#34;&gt;#&lt;/a&gt; 破解步骤&lt;/h2&gt;
+&lt;p&gt;桌面使用快捷键 &lt;span class=&#34;kbd&#34;&gt;shift&lt;/span&gt; + &lt;span class=&#34;kbd&#34;&gt;command&lt;/span&gt; + &lt;span class=&#34;kbd red&#34;&gt;G&lt;/span&gt;，前往目录 &lt;span class=&#34;kbd red&#34;&gt;/Applications/Burp Suite Professional.app/Contents/java/app/&lt;/span&gt; ，并将破解项目中两个 jar 包 &lt;span class=&#34;kbd red&#34;&gt;burp-loader-x-Ai.jar&lt;/span&gt; 、 &lt;span class=&#34;kbd red&#34;&gt;burp-keygen-scz.jar&lt;/span&gt; 放到目录中&lt;/p&gt;
+&lt;p&gt;在此目录进入终端执行以下命令，执行命令后会打开注册机，同时打开 &lt;span class=&#34;kbd red&#34;&gt;burpsuit&lt;/span&gt; 应用程序，根据以下图示破解&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;java -jar burp-keygen-scz.jar&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117222617370.png&#34; alt=&#34;image-20220117222617370&#34; title=&#34;注册机中可自定义用户名称&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173119941.png&#34; alt=&#34;image-20220117173119941&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173458552.png&#34; alt=&#34;image-20220117173458552&#34; title=&#34;填入注册机中的license&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173556277.png&#34; alt=&#34;image-20220117173556277&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173053218.png&#34; alt=&#34;image-20220117173053218&#34; title=&#34;Copy request至注册机&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173737953.png&#34; alt=&#34;image-20220117173737953&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173813598.png&#34; alt=&#34;image-20220117173813598&#34; title=&#34;从注册中Paste response&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173833200.png&#34; alt=&#34;image-20220117173833200&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173844958.png&#34; alt=&#34;image-20220117173844958&#34; /&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

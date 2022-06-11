@@ -1,0 +1,21 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "月のブログ",
+    "subtitle": "时光如白驹过隙",
+    "icon": "https://mo-onstudy.com/images/favicon.ico",
+    "description": "",
+    "home_page_url": "https://mo-onstudy.com",
+    "items": [
+        {
+            "id": "https://mo-onstudy.com/2022/01/17/Burpsuit%E7%A0%B4%E8%A7%A3/",
+            "url": "https://mo-onstudy.com/2022/01/17/Burpsuit%E7%A0%B4%E8%A7%A3/",
+            "title": "Burpsuit For Mac 破解流程",
+            "date_published": "2022-01-17T08:17:41.000Z",
+            "content_html": "<h2 id=\"前期准备\"><a class=\"anchor\" href=\"#前期准备\">#</a> 前期准备</h2>\n<h3 id=\"burpsuit下载\"><a class=\"anchor\" href=\"#burpsuit下载\">#</a> Burpsuit 下载</h3>\n<p>访问<span class=\"exturl\" data-url=\"aHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvYnVycA==\"> Burpsuit 官网</span>进入<span class=\"exturl\" data-url=\"aHR0cHM6Ly9wb3J0c3dpZ2dlci5uZXQvYnVycC9yZWxlYXNlcy9wcm9mZXNzaW9uYWwtY29tbXVuaXR5LTIwMjEtMTItMT9yZXF1ZXN0ZWRlZGl0aW9uPXByb2Zlc3Npb25hbA==\">下载页面</span>选择适合版本进行下载并安装</p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117163741945.png\" alt=\"image-20220117163741945\" /></p>\n<h3 id=\"破解项目下载\"><a class=\"anchor\" href=\"#破解项目下载\">#</a> 破解项目下载</h3>\n<p>访问<span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL1Ryb2phbkFaaGVu\"> TrojanAZhen</span>/<a href=\"https://github.com/TrojanAZhen/BurpSuitePro-2.1\"><strong>BurpSuitePro-2.1</strong></a> 下载项目文档</p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117163817508.png\" alt=\"image-20220117163817508\" /></p>\n<h3 id=\"jdk下载\"><a class=\"anchor\" href=\"#jdk下载\">#</a> jdk 下载</h3>\n<p>从 <span class=\"kbd red\">Zulu JDK</span> 官方网站下载 <span class=\"kbd red\">JDK</span> 安装包并安装 —<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuYXp1bC5jb20vZG93bmxvYWRzLz9wYWNrYWdlPWpkaw==\"> 下载页面</span></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117224646677.png\" alt=\"image-20220117224646677\" /></p>\n<h2 id=\"破解步骤\"><a class=\"anchor\" href=\"#破解步骤\">#</a> 破解步骤</h2>\n<p>桌面使用快捷键 <span class=\"kbd\">shift</span> + <span class=\"kbd\">command</span> + <span class=\"kbd red\">G</span>，前往目录 <span class=\"kbd red\">/Applications/Burp Suite Professional.app/Contents/java/app/</span> ，并将破解项目中两个 jar 包 <span class=\"kbd red\">burp-loader-x-Ai.jar</span> 、 <span class=\"kbd red\">burp-keygen-scz.jar</span> 放到目录中</p>\n<p>在此目录进入终端执行以下命令，执行命令后会打开注册机，同时打开 <span class=\"kbd red\">burpsuit</span> 应用程序，根据以下图示破解</p>\n<figure class=\"highlight shell\"><figcaption data-lang=\"Bash\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>java -jar burp-keygen-scz.jar</pre></td></tr></table></figure><p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117222617370.png\" alt=\"image-20220117222617370\" title=\"注册机中可自定义用户名称\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173119941.png\" alt=\"image-20220117173119941\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173458552.png\" alt=\"image-20220117173458552\" title=\"填入注册机中的license\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173556277.png\" alt=\"image-20220117173556277\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173053218.png\" alt=\"image-20220117173053218\" title=\"Copy request至注册机\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173737953.png\" alt=\"image-20220117173737953\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173813598.png\" alt=\"image-20220117173813598\" title=\"从注册中Paste response\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173833200.png\" alt=\"image-20220117173833200\" /></p>\n<p><img data-src=\"https://cdn.jsdelivr.net/gh/moonoon20/images@main/uPic/image-20220117173844958.png\" alt=\"image-20220117173844958\" /></p>\n",
+            "tags": [
+                "Burp",
+                "破解软件"
+            ]
+        }
+    ]
+}
